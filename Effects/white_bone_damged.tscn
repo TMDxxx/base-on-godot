@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://bte22bs7m51fn"]
+
+[ext_resource type="Texture2D" uid="uid://xovtvucdking" path="res://Fantasy RPG heroes pack/1x/Tilesets & extras (free samples)/Skeleton 01_die.png" id="1_0fmgx"]
+[ext_resource type="Script" path="res://Effects/Effect.gd" id="2_6yrfd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ccew"]
+atlas = ExtResource( "1_0fmgx" )
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0ue6"]
+atlas = ExtResource( "1_0fmgx" )
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvv0q"]
+atlas = ExtResource( "1_0fmgx" )
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e50q7"]
+atlas = ExtResource( "1_0fmgx" )
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p585b"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_7ccew" ), SubResource( "AtlasTexture_w0ue6" ), SubResource( "AtlasTexture_mvv0q" ), SubResource( "AtlasTexture_e50q7" )],
+"loop": true,
+"name": &"Animate",
+"speed": 15.0
+}]
+
+[node name="white_bone_damged" type="AnimatedSprite2D"]
+position = Vector2(0, -8)
+frames = SubResource( "SpriteFrames_p585b" )
+animation = &"Animate"
+script = ExtResource( "2_6yrfd" )

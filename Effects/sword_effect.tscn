@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwcah3li4jrsd"]
+
+[ext_resource type="Texture2D" uid="uid://b7aur0avnd6tf" path="res://Effects/HitEffect.png" id="1_ic0dy"]
+[ext_resource type="Script" path="res://Effects/Effect.gd" id="2_wb1k5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g61bg"]
+atlas = ExtResource( "1_ic0dy" )
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2oko"]
+atlas = ExtResource( "1_ic0dy" )
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jmn6y"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_g61bg" ), SubResource( "AtlasTexture_k2oko" )],
+"loop": false,
+"name": &"Animate",
+"speed": 10.0
+}]
+
+[node name="swordEffect" type="AnimatedSprite2D"]
+texture_filter = 1
+frames = SubResource( "SpriteFrames_jmn6y" )
+animation = &"Animate"
+offset = Vector2(0, -7)
+script = ExtResource( "2_wb1k5" )

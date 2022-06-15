@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cga1gmi6injdr"]
+
+[ext_resource type="Texture2D" uid="uid://b4vvqnsdngcja" path="res://Fantasy RPG heroes pack/1x/Projectiles & Breakables/Grass_breaking.png" id="1_3cnc5"]
+[ext_resource type="Script" path="res://Effects/Effect.gd" id="2_d5q53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4pri"]
+atlas = ExtResource( "1_3cnc5" )
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypdr8"]
+atlas = ExtResource( "1_3cnc5" )
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7kv8"]
+atlas = ExtResource( "1_3cnc5" )
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciy8k"]
+atlas = ExtResource( "1_3cnc5" )
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvrat"]
+atlas = ExtResource( "1_3cnc5" )
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar4ch"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_y4pri" ), SubResource( "AtlasTexture_ypdr8" ), SubResource( "AtlasTexture_f7kv8" ), SubResource( "AtlasTexture_ciy8k" ), SubResource( "AtlasTexture_wvrat" )],
+"loop": true,
+"name": &"Animate",
+"speed": 15.0
+}]
+
+[node name="GrassEffect" type="AnimatedSprite2D"]
+texture_filter = 1
+frames = SubResource( "SpriteFrames_ar4ch" )
+animation = &"Animate"
+frame = 2
+centered = false
+offset = Vector2(-16, -18)
+script = ExtResource( "2_d5q53" )

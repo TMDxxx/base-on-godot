@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://npiv3efc2ddw"]
+
+[ext_resource type="Texture2D" uid="uid://bsl57hggjr4is" path="res://Fantasy RPG heroes pack/1x/Projectiles & Breakables/Box_breaking.png" id="1_egiyk"]
+[ext_resource type="Script" path="res://Effects/Effect.gd" id="2_i0iou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihsjv"]
+atlas = ExtResource( "1_egiyk" )
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2mar"]
+atlas = ExtResource( "1_egiyk" )
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x0gd"]
+atlas = ExtResource( "1_egiyk" )
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie11s"]
+atlas = ExtResource( "1_egiyk" )
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgfjd"]
+atlas = ExtResource( "1_egiyk" )
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lv0fj"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_ihsjv" ), SubResource( "AtlasTexture_a2mar" ), SubResource( "AtlasTexture_8x0gd" ), SubResource( "AtlasTexture_ie11s" ), SubResource( "AtlasTexture_wgfjd" )],
+"loop": true,
+"name": &"Animate",
+"speed": 15.0
+}]
+
+[node name="BoxEffect" type="AnimatedSprite2D"]
+texture_filter = 1
+frames = SubResource( "SpriteFrames_lv0fj" )
+animation = &"Animate"
+frame = 1
+centered = false
+offset = Vector2(-18, -19)
+script = ExtResource( "2_i0iou" )
+
+[connection signal="animation_finished" from="." to="." method="_on_box_effect_animation_finished"]

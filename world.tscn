@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://ep1rqfn3ik4f"]
+
+[ext_resource type="PackedScene" uid="uid://biwot2aoef7kb" path="res://NPC/Beastmaster/Beastmaster.tscn" id="2_ud7km"]
+[ext_resource type="PackedScene" uid="uid://cpkvixho1mwfv" path="res://世界/field/field.tscn" id="4_t1lkb"]
+[ext_resource type="PackedScene" uid="uid://bxrey1jxv46vt" path="res://世界/Village/Village.tscn" id="6_ox10k"]
+[ext_resource type="PackedScene" uid="uid://cvtdxdw8vvkj4" path="res://UI/HealthUI.tscn" id="6_rpy1u"]
+
+[node name="world" type="Node2D"]
+texture_filter = 1
+position = Vector2(-1, 0)
+
+[node name="Village" parent="." instance=ExtResource( "6_ox10k" )]
+
+[node name="field" parent="." instance=ExtResource( "4_t1lkb" )]
+position = Vector2(0, 73)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(281, 228)
+current = true
+limit_left = -100
+limit_top = -100
+limit_right = 1000
+limit_bottom = 400
+smoothing_enabled = true
+
+[node name="Beastmaster" parent="." instance=ExtResource( "2_ud7km" )]
+position = Vector2(281, 228)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Beastmaster"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( "6_rpy1u" )]

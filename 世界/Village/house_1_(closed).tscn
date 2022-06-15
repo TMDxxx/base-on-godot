@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3yufhjii1tjw"]
+
+[ext_resource type="Texture2D" uid="uid://3nyn027m63ph" path="res://Fantasy RPG asset pack/Tileset/House_1 (closed).png" id="1_csa0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64nsa"]
+size = Vector2(70, 39)
+
+[node name="House1(closed)" type="StaticBody2D"]
+texture_filter = 1
+
+[node name="House1(closed)" type="Sprite2D" parent="."]
+texture = ExtResource( "1_csa0a" )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 57.5)
+shape = SubResource( "RectangleShape2D_64nsa" )

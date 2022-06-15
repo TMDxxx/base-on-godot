@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Fantasy RPG heroes pack/HealthUI.gd" id="1_efhpe"]
+
+[node name="HealthUI" type="Control"]
+offset_right = 40.0
+offset_bottom = 21.0
+script = ExtResource( "1_efhpe" )
+
+[node name="HeartUIEmpty" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

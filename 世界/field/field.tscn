@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpkvixho1mwfv"]
+
+[ext_resource type="PackedScene" uid="uid://cc7gan1m6foyq" path="res://怪物/white_bone.tscn" id="1_f0cjj"]
+[ext_resource type="PackedScene" uid="uid://dfg4lqach8jki" path="res://世界/grass.tscn" id="2_wxucv"]
+[ext_resource type="PackedScene" uid="uid://bascgpcigfrel" path="res://世界/box.tscn" id="3_og8te"]
+
+[node name="field" type="Node2D"]
+
+[node name="worldyuansu" type="Node2D" parent="."]
+position = Vector2(70, 46)
+y_sort_enabled = true
+
+[node name="whiteBone" parent="worldyuansu" instance=ExtResource( "1_f0cjj" )]
+position = Vector2(76, 86)
+
+[node name="whiteBone2" parent="worldyuansu" instance=ExtResource( "1_f0cjj" )]
+position = Vector2(81, 24)
+
+[node name="whiteBone3" parent="worldyuansu" instance=ExtResource( "1_f0cjj" )]
+position = Vector2(141, 16)
+
+[node name="whiteBone4" parent="worldyuansu" instance=ExtResource( "1_f0cjj" )]
+position = Vector2(115, -33)
+
+[node name="whiteBone5" parent="worldyuansu" instance=ExtResource( "1_f0cjj" )]
+position = Vector2(169, -8)
+
+[node name="whiteBone6" parent="worldyuansu" instance=ExtResource( "1_f0cjj" )]
+position = Vector2(229, 31)
+
+[node name="grasses" type="Node2D" parent="worldyuansu"]
+position = Vector2(-38, -33)
+
+[node name="grass" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(177, 128)
+
+[node name="grass2" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(17, 120)
+
+[node name="grass3" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(145, 96)
+
+[node name="grass4" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(201, 40)
+
+[node name="grass5" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(9, 8)
+
+[node name="grass6" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(57, 0)
+
+[node name="grass7" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(17, 40)
+
+[node name="grass8" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(81, 48)
+
+[node name="grass9" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(57, 72)
+
+[node name="grass10" parent="worldyuansu/grasses" instance=ExtResource( "2_wxucv" )]
+position = Vector2(105, 16)
+
+[node name="Boxs" type="Node2D" parent="worldyuansu"]
+position = Vector2(-71, -48)
+
+[node name="Box" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(17, 88)
+
+[node name="Box2" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(17, 72)
+
+[node name="Box3" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(17, 56)
+
+[node name="Box4" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(17, 104)
+
+[node name="Box5" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(166, 87)
+
+[node name="Box6" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(166, 45)
+
+[node name="Box7" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(149, 8)
+
+[node name="Box8" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(165, 83)
+
+[node name="Box9" parent="worldyuansu/Boxs" instance=ExtResource( "3_og8te" )]
+position = Vector2(94, 61)

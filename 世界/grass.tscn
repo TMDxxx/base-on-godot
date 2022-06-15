@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfg4lqach8jki"]
+
+[ext_resource type="Script" path="res://世界/grass.gd" id="1_nr2ee"]
+[ext_resource type="Texture2D" uid="uid://dfhlxxdpmk0r3" path="res://Fantasy RPG heroes pack/1x/Projectiles & Breakables/Grass.png" id="2_aurog"]
+[ext_resource type="PackedScene" uid="uid://2rmdh85t82oq" path="res://hitboxes_hurtboxes/hurtbox.tscn" id="3_0l2bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sss11"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrbuk"]
+size = Vector2(12, 12)
+
+[node name="grass" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource( "1_nr2ee" )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource( "2_aurog" )
+centered = false
+offset = Vector2(0, -2)
+
+[node name="hurtbox" parent="." instance=ExtResource( "3_0l2bo" )]
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(8, 7)
+shape = SubResource( "RectangleShape2D_sss11" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 7)
+shape = SubResource( "RectangleShape2D_vrbuk" )
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="hurtbox"]

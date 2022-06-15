@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cujorrlnbt12f"]
+
+[ext_resource type="Texture2D" uid="uid://88ghqepxja5f" path="res://Fantasy RPG asset pack/Objects/Torch.png" id="1_eaoco"]
+
+[node name="PointLight2D" type="PointLight2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource( "1_eaoco" )

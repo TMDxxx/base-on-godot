@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvtdxdw8vvkj4"]
+
+[ext_resource type="Script" path="res://UI/HealthUI.gd" id="1_efhpe"]
+[ext_resource type="Texture2D" uid="uid://bd3q0x80p1v7g" path="res://Fantasy RPG icon pack/Individual icons (16x16)/130.png" id="2_bgi74"]
+[ext_resource type="Texture2D" uid="uid://c4jcjnekto6ub" path="res://Fantasy RPG icon pack/Individual icons (16x16)/129.png" id="3_21amv"]
+
+[node name="HealthUI" type="Control"]
+offset_right = 64.0
+offset_bottom = 16.0
+script = ExtResource( "1_efhpe" )
+
+[node name="HeartUIEmpty" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 64.0
+offset_bottom = 16.0
+texture = ExtResource( "2_bgi74" )
+stretch_mode = 1
+metadata/_edit_layout_mode = 0
+metadata/_edit_use_custom_anchors = false
+
+[node name="HealthFull" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 80.0
+offset_bottom = 16.0
+texture = ExtResource( "3_21amv" )
+ignore_texture_size = true
+stretch_mode = 1
+metadata/_edit_use_custom_anchors = false

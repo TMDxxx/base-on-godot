@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bascgpcigfrel"]
+
+[ext_resource type="Texture2D" uid="uid://bq4tj1gdq7chj" path="res://Fantasy RPG heroes pack/1x/Projectiles & Breakables/Box.png" id="1_4yaxg"]
+[ext_resource type="Script" path="res://世界/box.gd" id="1_qfeys"]
+[ext_resource type="PackedScene" uid="uid://2rmdh85t82oq" path="res://hitboxes_hurtboxes/hurtbox.tscn" id="3_xdm43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37a6m"]
+size = Vector2(10, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2f17"]
+size = Vector2(10, 11)
+
+[node name="Box" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource( "1_qfeys" )
+
+[node name="Box" type="Sprite2D" parent="."]
+texture = ExtResource( "1_4yaxg" )
+centered = false
+offset = Vector2(-2, -3)
+
+[node name="hurtbox" parent="." instance=ExtResource( "3_xdm43" )]
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(6, 6.5)
+shape = SubResource( "RectangleShape2D_37a6m" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 6.5)
+shape = SubResource( "RectangleShape2D_a2f17" )
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="hurtbox"]

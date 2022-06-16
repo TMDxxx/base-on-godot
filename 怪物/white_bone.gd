@@ -17,6 +17,10 @@ var knockback = Vector2.ZERO
 
 var state = IDLE
 
+@onready var animationPlayer = $AnimatedSprite2D/AnimationPlayer
+@onready var animationTree = $AnimationTree
+@onready var animationState = animationTree.get("parameters/playback")
+
 @onready var stats = $Stats
 @onready var playDetectionZone = $PlayerDetectionZone
 @onready var sprite = $AnimatedSprite2D
@@ -24,10 +28,13 @@ var state = IDLE
 @onready var softCollision = $SoftCollision 
 @onready var wanderController = $WanderController
 
+func _ready():
+	animationTree.active = true
+	
 func _physics_process(delta):
-	velocity = velocity.move_toward(Vector2.ZERO,FRICTION*delta)
 	match state:
 		IDLE:
+			animationState.travel("IDLE")
 			velocity = velocity.move_toward(Vector2.ZERO,FRICTION * delta)
 			seek_player()
 			if wanderController.get_time_left() == 0:
@@ -44,7 +51,8 @@ func _physics_process(delta):
 		CHASE:
 			var player = playDetectionZone.player
 			if player!=null:
-				accelerate_toward_points(player.global_position,delta)
+				var ve = player.global_position
+				accelerate_toward_points(ve,delta)
 			else:
 				state = IDLE
 			
@@ -54,7 +62,11 @@ func _physics_process(delta):
 
 func accelerate_toward_points(point,delta):
 	var dir = global_position.direction_to(point)
+	animationTree.set("parameters/IDLE/blend_position",dir)
+	animationTree.set("parameters/WALK/blend_position",dir)
+	animationState.travel("WALK")
 	velocity = velocity.move_toward(dir * MAX_SPEED,ACCELERATION*delta)
+	
 	#sprite.flip_h = velocity.x < 0 #方向改变
 	
 func pick_random_state(state_list):

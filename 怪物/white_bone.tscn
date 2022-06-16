@@ -1,8 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://cc7gan1m6foyq"]
+[gd_scene load_steps=88 format=3 uid="uid://cc7gan1m6foyq"]
 
 [ext_resource type="Script" path="res://怪物/white_bone.gd" id="1_ck2aw"]
 [ext_resource type="Texture2D" uid="uid://dx306rfeovtu5" path="res://Fantasy RPG heroes pack/1x/Tilesets & extras (free samples)/Skeleton 01_walk.png" id="1_y6w4i"]
 [ext_resource type="PackedScene" uid="uid://2rmdh85t82oq" path="res://hitboxes_hurtboxes/hurtbox.tscn" id="2_byf1g"]
+[ext_resource type="Texture2D" uid="uid://b26b2ythxmm2w" path="res://Fantasy RPG asset pack/Monsters and animals/Skeleton 01_idle (16x16).png" id="3_haymo"]
 [ext_resource type="PackedScene" uid="uid://b32v7pmlkhl8f" path="res://属性/stats.tscn" id="4_6vyyw"]
 [ext_resource type="PackedScene" uid="uid://be4vghw14h43x" path="res://怪物/player_detection_zone.tscn" id="5_5xb8h"]
 [ext_resource type="PackedScene" uid="uid://ctdby4ex6eomd" path="res://hitboxes_hurtboxes/hitbox.tscn" id="6_v0ndd"]
@@ -137,6 +138,70 @@ region = Rect2(32, 48, 16, 16)
 atlas = ExtResource( "1_y6w4i" )
 region = Rect2(48, 48, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_08vj0"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fhnh"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iydue"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnqk3"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1rao"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsogw"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixtgj"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uyhq"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgf5j"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vocep"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om0fo"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b6gy"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m451"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2sjn"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ljga"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erfit"]
+atlas = ExtResource( "3_haymo" )
+region = Rect2(48, 48, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_tm3ux"]
 animations = [{
 "frames": [SubResource( "AtlasTexture_o1p2n" ), SubResource( "AtlasTexture_ues8q" ), SubResource( "AtlasTexture_n6kub" ), SubResource( "AtlasTexture_gqhul" ), SubResource( "AtlasTexture_ncl1b" ), SubResource( "AtlasTexture_u5sef" ), SubResource( "AtlasTexture_k0ged" ), SubResource( "AtlasTexture_q0af4" ), SubResource( "AtlasTexture_0ggok" ), SubResource( "AtlasTexture_glfxe" ), SubResource( "AtlasTexture_w2k42" ), SubResource( "AtlasTexture_24h4x" ), SubResource( "AtlasTexture_rrhau" ), SubResource( "AtlasTexture_cvik1" ), SubResource( "AtlasTexture_m6l0u" ), SubResource( "AtlasTexture_uf5ml" )],
@@ -148,7 +213,186 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 5.0
+}, {
+"frames": [SubResource( "AtlasTexture_08vj0" ), SubResource( "AtlasTexture_2fhnh" ), SubResource( "AtlasTexture_iydue" ), SubResource( "AtlasTexture_jnqk3" ), SubResource( "AtlasTexture_a1rao" ), SubResource( "AtlasTexture_tsogw" ), SubResource( "AtlasTexture_ixtgj" ), SubResource( "AtlasTexture_3uyhq" ), SubResource( "AtlasTexture_cgf5j" ), SubResource( "AtlasTexture_vocep" ), SubResource( "AtlasTexture_om0fo" ), SubResource( "AtlasTexture_0b6gy" ), SubResource( "AtlasTexture_2m451" ), SubResource( "AtlasTexture_h2sjn" ), SubResource( "AtlasTexture_0ljga" ), SubResource( "AtlasTexture_erfit" )],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_ykk6q"]
+resource_name = "walkleft"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_qj1lc"]
+resource_name = "walkup"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_dbchf"]
+resource_name = "idledown"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_sif1t"]
+resource_name = "idleleft"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_o5pdt"]
+resource_name = "idleright"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_vxxy8"]
+resource_name = "walkright"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
 
 [sub_resource type="Animation" id="Animation_8tou6"]
 length = 0.001
@@ -180,6 +424,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_juhqw"]
 resource_name = "waldown"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -205,11 +450,111 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_pquuo"]
+resource_name = "idleup"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvt8w"]
 _data = {
 "RESET": SubResource( "Animation_8tou6" ),
-"waldown": SubResource( "Animation_juhqw" )
+"idledown": SubResource( "Animation_dbchf" ),
+"idleleft": SubResource( "Animation_sif1t" ),
+"idleright": SubResource( "Animation_o5pdt" ),
+"idleup": SubResource( "Animation_pquuo" ),
+"waldown": SubResource( "Animation_juhqw" ),
+"walkleft": SubResource( "Animation_ykk6q" ),
+"walkright": SubResource( "Animation_vxxy8" ),
+"walkup": SubResource( "Animation_qj1lc" )
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ah044"]
+animation = &"idleleft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cqbcd"]
+animation = &"idleup"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_81q0p"]
+animation = &"idledown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bb84g"]
+animation = &"idleright"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gljth"]
+blend_point_0/node = SubResource( "AnimationNodeAnimation_ah044" )
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource( "AnimationNodeAnimation_cqbcd" )
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource( "AnimationNodeAnimation_81q0p" )
+blend_point_2/pos = Vector2(0, 1.1)
+blend_point_3/node = SubResource( "AnimationNodeAnimation_bb84g" )
+blend_point_3/pos = Vector2(1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n1sne"]
+animation = &"walkleft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yo1ey"]
+animation = &"walkright"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_afcne"]
+animation = &"walkup"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jpofl"]
+animation = &"waldown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_74ucf"]
+blend_point_0/node = SubResource( "AnimationNodeAnimation_n1sne" )
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource( "AnimationNodeAnimation_yo1ey" )
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource( "AnimationNodeAnimation_afcne" )
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_3/node = SubResource( "AnimationNodeAnimation_jpofl" )
+blend_point_3/pos = Vector2(0, 1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nxk4m"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3yubj"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_md2hr"]
+states/IDLE/node = SubResource( "AnimationNodeBlendSpace2D_gljth" )
+states/IDLE/position = Vector2(175.5, 147.781)
+states/WALK/node = SubResource( "AnimationNodeBlendSpace2D_74ucf" )
+states/WALK/position = Vector2(438.5, 148.063)
+transitions = [&"IDLE", &"WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), &"WALK", &"IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
+start_node = "IDLE"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ts4l0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ciwu"]
 radius = 2.0
@@ -238,21 +583,31 @@ script = ExtResource( "1_ck2aw" )
 texture_filter = 1
 position = Vector2(0, -8)
 frames = SubResource( "SpriteFrames_tm3ux" )
-animation = &"walk"
-frame = 12
-playing = true
+animation = &"idle"
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
 "": SubResource( "AnimationLibrary_pvt8w" )
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( "AnimationNodeStateMachine_md2hr" )
+anim_player = NodePath("../AnimatedSprite2D/AnimationPlayer")
+active = true
+process_callback = 0
+parameters/playback = SubResource( "AnimationNodeStateMachinePlayback_ts4l0" )
+parameters/IDLE/blend_position = Vector2(0, 0)
+parameters/WALK/blend_position = Vector2(1, 1)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource( "CapsuleShape2D_6ciwu" )
 
 [node name="hurtbox" parent="." instance=ExtResource( "2_byf1g" )]
+visible = false
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
@@ -266,10 +621,12 @@ max_health = 3
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( "5_5xb8h" )]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+visible = false
 modulate = Color(1, 1, 1, 0.152941)
 shape = SubResource( "CircleShape2D_rcalh" )
 
 [node name="hitbox" parent="." instance=ExtResource( "6_v0ndd" )]
+visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="hitbox" index="0"]
@@ -277,6 +634,7 @@ position = Vector2(0, -6)
 shape = SubResource( "CapsuleShape2D_tul46" )
 
 [node name="SoftCollision" parent="." instance=ExtResource( "7_dnmn1" )]
+visible = false
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 position = Vector2(0, -2)

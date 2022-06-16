@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j65ksja7lynr"
-path="res://.godot/imported/Mage_Sprite_Sheet.png-ca9c1c84a7b5dc6a37b77ac613f4b14f.ctex"
+uid="uid://da71tnqyf4lwi"
+path="res://.godot/imported/spot.png-36b4dfbff4efeea17ec3137d266ffc4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mage_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/Mage_Sprite_Sheet.png-ca9c1c84a7b5dc6a37b77ac613f4b14f.ctex"]
+source_file="res://spot.png"
+dest_files=["res://.godot/imported/spot.png-36b4dfbff4efeea17ec3137d266ffc4a.ctex"]
 
 [params]
 

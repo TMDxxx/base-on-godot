@@ -21,4 +21,4 @@ func _ready():
 	self.max_hearts = BeastmasterStatus.max_health
 	self.hearts = BeastmasterStatus.health
 	BeastmasterStatus.connect("health_changed",Callable(self,"set_hearts"))
-	BeastmasterStatus.connect("health_max_changed",Callable(self,"set_max_hearts"))
+	BeastmasterStatus.connect("max_health_changed",Callable(self,"set_max_hearts"))

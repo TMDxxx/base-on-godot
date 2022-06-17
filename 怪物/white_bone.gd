@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const white_bone_damged = preload("res://Effects/white_bone_damged.tscn")
+const white_bone_damged = preload("res://Effects/sword_effect.tscn")
 
 @export var ACCELERATION = 220
 @export var MAX_SPEED = 20
@@ -87,8 +87,10 @@ func _on_hurtbox_area_entered(area):
 	hurtbox.creat_hit_effect()
 	
 func _on_stats_no_health():
+	print(">>>>")
 	queue_free()
 	var white_bone_damge = white_bone_damged.instantiate()
 	get_parent().add_child(white_bone_damge)
 	white_bone_damge.global_position = global_position
 	
+

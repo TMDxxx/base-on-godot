@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://deev1cy1xd70w"]
+[gd_scene load_steps=2 format=3 uid="uid://cilpd3nlau2kl"]
 
 [ext_resource type="PackedScene" uid="uid://b32v7pmlkhl8f" path="res://属性/stats.tscn" id="1_nwnv3"]
 
 [node name="BeastmasterStatus" instance=ExtResource( "1_nwnv3" )]
+max_health = 6

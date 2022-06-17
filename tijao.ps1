@@ -1,10 +1,7 @@
 cls
-echo "# base-on-godot" >> README.md
-git init
-git config --global user.email "1598435288@qq.com"
-git config --global user.name "QZY"
+
 git add .
-git commit -m "first commit"
+git commit -m "实例化大部分角色并实现了另一可操纵角色"
 git branch -M main
 git remote add origin https://github.com/netdeleishui/base-on-godot.git
 git push -u origin main

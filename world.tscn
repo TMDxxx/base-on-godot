@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ep1rqfn3ik4f"]
 
 [ext_resource type="PackedScene" uid="uid://crrc0kjj4fc8f" path="res://怪物/monster/mushy_1.tscn" id="4_ajtpy"]
-[ext_resource type="PackedScene" uid="uid://cgvujim6jqoaq" path="res://NPC/Swashbuckler/swashbuckler.tscn" id="5_enpcx"]
 [ext_resource type="PackedScene" uid="uid://cc7gan1m6foyq" path="res://怪物/white_bone.tscn" id="5_l86dn"]
+[ext_resource type="PackedScene" uid="uid://biwot2aoef7kb" path="res://NPC/Beastmaster/Beastmaster.tscn" id="5_ocwac"]
 [ext_resource type="PackedScene" uid="uid://bxrey1jxv46vt" path="res://世界/Village/Village.tscn" id="6_ox10k"]
 [ext_resource type="PackedScene" uid="uid://cvtdxdw8vvkj4" path="res://UI/HealthUI.tscn" id="6_rpy1u"]
 
@@ -14,7 +14,7 @@ y_sort_enabled = true
 position = Vector2(-2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(181, 80)
+position = Vector2(182, 79)
 current = true
 limit_left = -100
 limit_top = -100
@@ -35,8 +35,9 @@ position = Vector2(261, 324)
 [node name="whiteBone" parent="." instance=ExtResource( "5_l86dn" )]
 position = Vector2(385, 253)
 
-[node name="Swashbuckler" parent="." instance=ExtResource( "5_enpcx" )]
+[node name="Beastmaster" parent="." instance=ExtResource( "5_ocwac" )]
 position = Vector2(181, 80)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Swashbuckler"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Beastmaster"]
+position = Vector2(1, -1)
 remote_path = NodePath("../../Camera2D")

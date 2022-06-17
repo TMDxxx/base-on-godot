@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://rfoscc5y34yk"]
+
+[ext_resource type="Script" path="res://Globals/scane_changer.gd" id="1_7xspn"]
+
+[node name="ScaneChanger" type="CanvasLayer"]
+layer = 90
+script = ExtResource( "1_7xspn" )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 721.0
+offset_bottom = 453.0
+color = Color(0, 0, 0, 0)

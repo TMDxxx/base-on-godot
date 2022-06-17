@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsripmt43l504"
+path="res://.godot/imported/walkingrass.mp3-f6a8555500a47a91e42c68a2c5c15810.mp3str"
+
+[deps]
+
+source_file="res://sound/walkingrass.mp3"
+dest_files=["res://.godot/imported/walkingrass.mp3-f6a8555500a47a91e42c68a2c5c15810.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0

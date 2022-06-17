@@ -12,7 +12,7 @@ enum{
 }
 
 var roll_vector = Vector2.DOWN
-var state = MOVE
+var state=MOVE
 var stats = BeastmasterStatus
 
 @onready var animationPlayer = $AnimatedSprite2D/AnimationPlayer
@@ -32,7 +32,7 @@ func _physics_process(delta):
 		MOVE:
 			move_state(delta)
 		ROLL:
-			pass
+			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
 
@@ -51,18 +51,18 @@ func move_state(delta):
 		animationState.travel("idle")
 		velocity=velocity.move_toward(Vector2.ZERO, FRICTION * delta) # 施加摩擦力
 	move()
-	#if Input.is_action_just_pressed("roll"):
-		#state=ROLL
+	if Input.is_action_just_pressed("roll"):
+		state=ROLL
 	if Input.is_action_just_pressed("attack"):
 		state=ATTACK
 	
 	
-func roll_state(_delta):
+func roll_state(delta):
 	velocity = roll_vector * ROLL_SPEED
 	animationState.travel("Roll")
 	move()
 	
-func attack_state(_delta):
+func attack_state(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 	
@@ -78,7 +78,7 @@ func roll_animation_finished():
 	state=MOVE
 
 
-func _on_hurtbox_area_entered(_area):
+func _on_hurtbox_area_entered(area):
 	stats.health -= 1
 	hurtbox.start_invincibility(1)
 	hurtbox.creat_hit_effect()

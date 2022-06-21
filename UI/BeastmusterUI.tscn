@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyhg5jkoywi76"]
+
+[ext_resource type="Texture2D" uid="uid://cvg300x2ecvml" path="res://Fantasy RPG heroes pack/1x/Character portraits & Emotes/Beastmaster.png" id="1_recdt"]
+[ext_resource type="Script" path="res://UI/BeastmusterUI.gd" id="1_yq6t5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiq7p"]
+bg_color = Color(0.6, 0.0196078, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7032"]
+bg_color = Color(0.109804, 0.6, 0.141176, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Control" type="Control"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource( "1_yq6t5" )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 107.0
+offset_bottom = 34.0
+metadata/_edit_layout_mode = 0
+metadata/_edit_use_custom_anchors = false
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+offset_right = 18.0
+offset_bottom = 34.0
+focus_neighbor_right = NodePath("../GridContainer")
+texture = ExtResource( "1_recdt" )
+stretch_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+offset_left = 22.0
+offset_right = 107.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+columns = 2
+metadata/_edit_layout_mode = 0
+metadata/_edit_use_custom_anchors = false
+
+[node name="Label" type="Label" parent="HBoxContainer/GridContainer"]
+minimum_size = Vector2(10, 2)
+offset_right = 11.0
+offset_bottom = 15.0
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 8
+text = "HP"
+
+[node name="HP" type="ProgressBar" parent="HBoxContainer/GridContainer"]
+minimum_size = Vector2(0, 6)
+offset_left = 19.0
+offset_top = 4.0
+offset_right = 85.0
+offset_bottom = 10.0
+size_flags_vertical = 4
+theme_override_styles/fg = SubResource( "StyleBoxFlat_hiq7p" )
+value = 45.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="HBoxContainer/GridContainer"]
+offset_top = 19.0
+offset_right = 15.0
+offset_bottom = 34.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "EXP
+"
+
+[node name="EXP" type="ProgressBar" parent="HBoxContainer/GridContainer"]
+minimum_size = Vector2(0, 6)
+offset_left = 19.0
+offset_top = 23.0
+offset_right = 85.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/fg = SubResource( "StyleBoxFlat_e7032" )
+step = 5.0
+value = 45.0
+percent_visible = false

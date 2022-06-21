@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://ep1rqfn3ik4f"]
 
+[ext_resource type="PackedScene" uid="uid://dyhg5jkoywi76" path="res://UI/BeastmusterUI.tscn" id="3_52njg"]
 [ext_resource type="PackedScene" uid="uid://crrc0kjj4fc8f" path="res://怪物/monster/mushy_1.tscn" id="4_ajtpy"]
 [ext_resource type="PackedScene" uid="uid://cc7gan1m6foyq" path="res://怪物/white_bone.tscn" id="5_l86dn"]
 [ext_resource type="PackedScene" uid="uid://biwot2aoef7kb" path="res://NPC/Beastmaster/Beastmaster.tscn" id="5_ocwac"]
 [ext_resource type="PackedScene" uid="uid://bxrey1jxv46vt" path="res://世界/Village/Village.tscn" id="6_ox10k"]
-[ext_resource type="PackedScene" uid="uid://cvtdxdw8vvkj4" path="res://UI/HealthUI.tscn" id="6_rpy1u"]
 
 [node name="world" type="Node2D"]
 texture_filter = 1
@@ -14,7 +14,7 @@ y_sort_enabled = true
 position = Vector2(-2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(182, 79)
+position = Vector2(360, 235)
 current = true
 limit_left = -100
 limit_top = -100
@@ -22,9 +22,16 @@ limit_right = 1500
 limit_bottom = 600
 smoothing_enabled = true
 
+[node name="Beastmaster" parent="." instance=ExtResource( "5_ocwac" )]
+position = Vector2(359, 236)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Beastmaster"]
+position = Vector2(1, -1)
+remote_path = NodePath("../../Camera2D")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( "6_rpy1u" )]
+[node name="Control" parent="CanvasLayer" instance=ExtResource( "3_52njg" )]
 
 [node name="Mushy_1" parent="." instance=ExtResource( "4_ajtpy" )]
 position = Vector2(325, 308)
@@ -34,10 +41,3 @@ position = Vector2(261, 324)
 
 [node name="whiteBone" parent="." instance=ExtResource( "5_l86dn" )]
 position = Vector2(385, 253)
-
-[node name="Beastmaster" parent="." instance=ExtResource( "5_ocwac" )]
-position = Vector2(181, 80)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Beastmaster"]
-position = Vector2(1, -1)
-remote_path = NodePath("../../Camera2D")

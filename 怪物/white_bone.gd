@@ -84,10 +84,9 @@ func seek_player():
 func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
 	velocity = area.knockback_vector * 120
-	hurtbox.creat_hit_effect()
+	hurtbox.creat_hit_effect(area.damage)
 	
 func _on_stats_no_health():
-	print(">>>>")
 	queue_free()
 	var white_bone_damge = white_bone_damged.instantiate()
 	get_parent().add_child(white_bone_damge)

@@ -1,6 +1,7 @@
 extends Area2D
 
 const HitEffect = preload("res://Effects/sword_effect.tscn")
+const damageHit = preload("res://Effects/demage_effect.tscn")
 
 var invincible = false:
 	set=set_invincible
@@ -19,11 +20,17 @@ func start_invincibility(duration):
 	self.invincible = true
 	timer.start(duration)
 
-func creat_hit_effect():
+func creat_hit_effect(damage):
 	var effect = HitEffect.instantiate()
 	var main = get_tree().current_scene
 	main.add_child(effect)
 	effect.global_position = global_position
+	var damagehit = damageHit.instantiate()
+	main.add_child(damagehit)
+	print(global_position)
+	
+	damagehit.damagehit(damage)
+	damagehit.global_position = global_position
 
 
 func _on_timer_timeout():

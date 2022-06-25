@@ -11,7 +11,7 @@ texture_filter = 1
 y_sort_enabled = true
 
 [node name="Village" parent="." instance=ExtResource( "6_ox10k" )]
-position = Vector2(83, -8)
+position = Vector2(80, -8)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

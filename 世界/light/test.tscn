@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cop07fp6m7mbg"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" uid="uid://wwj6baj53qdn" path="res://世界/light/tourch.tscn" id="1_twafp"]
 [ext_resource type="Texture2D" uid="uid://cdsths8twt0sv" path="res://世界/light/background.png" id="2_5d0k8"]
-[ext_resource type="Texture2D" uid="uid://c046w63pom178" path="res://caster.png" id="3_83gt4"]
-[ext_resource type="Texture2D" uid="uid://da71tnqyf4lwi" path="res://spot.png" id="3_a3x0s"]
+[ext_resource type="Texture2D" uid="uid://c046w63pom178" path="res://世界/light/caster.png" id="3_83gt4"]
+[ext_resource type="Texture2D" path="res://世界/light/spot.png" id="3_a3x0s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0qvvw"]
 blend_mode = 1

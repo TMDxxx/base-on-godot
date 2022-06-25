@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c046w63pom178"
-path="res://.godot/imported/caster.png-67727cb056b9e0209664a84f1653a25a.ctex"
+path="res://.godot/imported/caster.png-c558206ee3fe78280b6f0cabb1ef3b6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://caster.png"
-dest_files=["res://.godot/imported/caster.png-67727cb056b9e0209664a84f1653a25a.ctex"]
+source_file="res://世界/light/caster.png"
+dest_files=["res://.godot/imported/caster.png-c558206ee3fe78280b6f0cabb1ef3b6f.ctex"]
 
 [params]
 

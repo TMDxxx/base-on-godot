@@ -28,8 +28,8 @@ _global_script_class_icons={
 
 config/name="课程设计Ⅲ"
 run/main_scene="res://world.tscn"
-config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
+config/icon="res://icon.png"
 
 [autoload]
 

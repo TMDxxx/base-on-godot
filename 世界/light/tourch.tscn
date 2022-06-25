@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://wwj6baj53qdn"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Texture2D" uid="uid://bjq7a0kjpl7b" path="res://light.png" id="1_bxsdg"]
+[ext_resource type="Texture2D" path="res://世界/light/light.png" id="1_bxsdg"]
 
 [node name="PointLight2D" type="PointLight2D"]
 scale = Vector2(0.1, 0.1)

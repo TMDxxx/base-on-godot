@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://bxrey1jxv46vt"]
+[gd_scene load_steps=40 format=3 uid="uid://bxrey1jxv46vt"]
 
+[ext_resource type="Script" path="res://世界/Village/Village.gd" id="1_am5nh"]
 [ext_resource type="TileSet" uid="uid://cwyrd7cl6bk3i" path="res://世界/TilemapTileset.tres" id="1_xam4y"]
 [ext_resource type="PackedScene" uid="uid://cg78rxjo0foh3" path="res://NPC/village/npc_1.tscn" id="2_6xcqb"]
 [ext_resource type="PackedScene" uid="uid://c446ngclx7ta3" path="res://NPC/village/npc_2.tscn" id="3_nc526"]
@@ -43,6 +44,7 @@ size = Vector2(20, 48)
 
 [node name="Village" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource( "1_am5nh" )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( "1_xam4y" )
@@ -169,3 +171,5 @@ script = ExtResource( "37_j4ydr" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
 shape = SubResource( "RectangleShape2D_4xuls" )
+
+[connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]

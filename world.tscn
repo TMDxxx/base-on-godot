@@ -13,22 +13,6 @@ y_sort_enabled = true
 [node name="Village" parent="." instance=ExtResource( "6_ox10k" )]
 position = Vector2(-2, 2)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(360, 235)
-current = true
-limit_left = -100
-limit_top = -100
-limit_right = 1500
-limit_bottom = 600
-smoothing_enabled = true
-
-[node name="Beastmaster" parent="." instance=ExtResource( "5_ocwac" )]
-position = Vector2(359, 236)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Beastmaster"]
-position = Vector2(1, -1)
-remote_path = NodePath("../../Camera2D")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( "3_52njg" )]
@@ -41,3 +25,6 @@ position = Vector2(261, 324)
 
 [node name="whiteBone" parent="." instance=ExtResource( "5_l86dn" )]
 position = Vector2(385, 253)
+
+[node name="Beastmaster" parent="." instance=ExtResource( "5_ocwac" )]
+position = Vector2(32, 266)

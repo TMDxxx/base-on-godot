@@ -8,9 +8,8 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0qvvw"]
 blend_mode = 1
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ytac5"]
-closed = false
-polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_17jnn"]
+polygon = PackedVector2Array(-16, 16, 16, 16, 16, -16, -16, -16)
 
 [node name="test" type="Node2D"]
 
@@ -20,34 +19,27 @@ scale = Vector2(10, 10)
 texture = ExtResource( "2_5d0k8" )
 
 [node name="PointLight2D2" parent="." instance=ExtResource( "1_twafp" )]
-position = Vector2(118, 5)
+position = Vector2(102, 77)
+scale = Vector2(0.242383, 0.249219)
+color = Color(1, 0.505882, 0.133333, 1)
 shadow_enabled = true
-shadow_filter_smooth = 11.0
-texture_scale = 2.25
+shadow_color = Color(0.662745, 0.275055, 0.200536, 0)
+shadow_filter = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="PointLight2D2"]
 material = SubResource( "CanvasItemMaterial_0qvvw" )
 texture = ExtResource( "3_a3x0s" )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2(18, 12)
+position = Vector2(73, 22)
 color = Color(0.27451, 0.27451, 0.27451, 1)
 
 [node name="OCCAR" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="OCCAR"]
-position = Vector2(11.5, 26)
-scale = Vector2(0.5, 0.5)
+position = Vector2(100, 51.5)
+scale = Vector2(0.25, 0.28125)
 texture = ExtResource( "3_83gt4" )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="OCCAR/Sprite2D"]
-position = Vector2(-1, 0)
-occluder = SubResource( "OccluderPolygon2D_ytac5" )
-
-[node name="Sprite2D2" type="Sprite2D" parent="OCCAR"]
-position = Vector2(114, -25)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource( "3_83gt4" )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="OCCAR/Sprite2D2"]
-occluder = SubResource( "OccluderPolygon2D_ytac5" )
+occluder = SubResource( "OccluderPolygon2D_17jnn" )

@@ -3,7 +3,7 @@ extends CharacterBody2D
 const white_bone_damged = preload("res://Effects/sword_effect.tscn")
 
 @export var ACCELERATION = 220
-@export var MAX_SPEED = 20
+@export var MAX_SPEED = 50
 @export var FRICTION = 200
 @export var WANDER_TARGET_RANGE = 4
 
@@ -24,8 +24,6 @@ var state = IDLE
 @onready var stats = $Stats
 @onready var playDetectionZone = $PlayerDetectionZone
 @onready var sprite = $AnimatedSprite2D
-@onready var hurtbox = $hurtbox
-@onready var hitbox = $hitbox
 @onready var softCollision = $SoftCollision 
 @onready var wanderController = $WanderController
 
@@ -53,13 +51,12 @@ func _physics_process(delta):
 			var player = playDetectionZone.player
 			if player!=null:
 				var ve = player.global_position
-				accelerate_toward_points(ve,delta)
+				accelerate_toward_points(-ve,delta)
 			else:
 				state = IDLE
 			
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector() * delta *400
-	hitbox.knockback_vector = velocity
 	move_and_slide()
 
 func accelerate_toward_points(point,delta):
@@ -83,11 +80,6 @@ func seek_player():
 	if playDetectionZone.can_see_player():
 		state = CHASE
 
-func _on_hurtbox_area_entered(area):
-	stats.health -= area.damage
-	velocity = area.knockback_vector * 120
-	hurtbox.creat_hit_effect(area.damage)
-	
 func _on_stats_no_health():
 	queue_free()
 	var white_bone_damge = white_bone_damged.instantiate()

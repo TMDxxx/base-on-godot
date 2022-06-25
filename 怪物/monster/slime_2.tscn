@@ -1,7 +1,14 @@
-[gd_scene load_steps=61 format=3 uid="uid://boxbfxrm3d16w"]
+[gd_scene load_steps=71 format=3 uid="uid://boxbfxrm3d16w"]
 
+[ext_resource type="Script" path="res://怪物/white_bone.gd" id="1_4pfjf"]
 [ext_resource type="Texture2D" uid="uid://dv2pmjbivipsu" path="res://Fantasy RPG asset pack/Monsters and animals/Slime 02_idle (16x16).png" id="1_km0ai"]
 [ext_resource type="Texture2D" uid="uid://2gibmubnk45j" path="res://Fantasy RPG asset pack/Monsters and animals/Slime 02_walk (16x16).png" id="2_iineu"]
+[ext_resource type="PackedScene" uid="uid://lmcgfwsc54oa" path="res://hitboxes_hurtboxes/soft_collision.tscn" id="3_l4xbt"]
+[ext_resource type="PackedScene" uid="uid://be4vghw14h43x" path="res://怪物/player_detection_zone.tscn" id="4_5b0e6"]
+[ext_resource type="PackedScene" uid="uid://bgwdvroyk6weh" path="res://怪物/WanderController.tscn" id="5_xqvdj"]
+[ext_resource type="PackedScene" uid="uid://2rmdh85t82oq" path="res://hitboxes_hurtboxes/hurtbox.tscn" id="6_ep4nx"]
+[ext_resource type="PackedScene" uid="uid://ctdby4ex6eomd" path="res://hitboxes_hurtboxes/hitbox.tscn" id="7_0qq1c"]
+[ext_resource type="PackedScene" uid="uid://b32v7pmlkhl8f" path="res://属性/stats.tscn" id="8_wqaae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yirl7"]
 atlas = ExtResource( "1_km0ai" )
@@ -200,6 +207,35 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_sif1t"]
+resource_name = "idleleft"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
 [sub_resource type="Animation" id="Animation_o5pdt"]
 resource_name = "idleright"
 length = 0.8
@@ -229,8 +265,8 @@ tracks/1/keys = {
 "values": [8, 9, 10, 11]
 }
 
-[sub_resource type="Animation" id="Animation_sif1t"]
-resource_name = "idleleft"
+[sub_resource type="Animation" id="Animation_pquuo"]
+resource_name = "idleup"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -255,7 +291,36 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7]
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_juhqw"]
+resource_name = "waldown"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_ykk6q"]
@@ -345,64 +410,6 @@ tracks/1/keys = {
 "values": [12, 13, 14, 15]
 }
 
-[sub_resource type="Animation" id="Animation_pquuo"]
-resource_name = "idleup"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [12, 13, 14, 15]
-}
-
-[sub_resource type="Animation" id="Animation_juhqw"]
-resource_name = "waldown"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvt8w"]
 _data = {
 "RESET": SubResource( "Animation_8tou6" ),
@@ -475,8 +482,7 @@ states/IDLE/node = SubResource( "AnimationNodeBlendSpace2D_gljth" )
 states/IDLE/position = Vector2(175.5, 147.781)
 states/WALK/node = SubResource( "AnimationNodeBlendSpace2D_74ucf" )
 states/WALK/position = Vector2(438.5, 148.063)
-transitions = [&"IDLE", &"WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), &"WALK", &"IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
-start_node = "IDLE"
+transitions = ["IDLE", "WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), "WALK", "IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7h40t"]
 
@@ -484,14 +490,25 @@ start_node = "IDLE"
 radius = 2.0
 height = 8.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxnjc"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbxtu"]
+radius = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jro22"]
+radius = 3.0
+height = 8.0
+
 [node name="Slime_2" type="CharacterBody2D"]
+script = ExtResource( "1_4pfjf" )
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -7)
 frames = SubResource( "SpriteFrames_m6jb2" )
-animation = &"idle"
-frame = 1
+animation = &"walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
@@ -511,3 +528,40 @@ parameters/WALK/blend_position = Vector2(1, 1)
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource( "CapsuleShape2D_t116k" )
+
+[node name="SoftCollision" parent="." instance=ExtResource( "3_l4xbt" )]
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2(0, -2)
+rotation = 1.5708
+shape = SubResource( "CapsuleShape2D_yxnjc" )
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( "4_5b0e6" )]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+modulate = Color(1, 1, 1, 0.0941176)
+rotation = 1.5708
+shape = SubResource( "CircleShape2D_jbxtu" )
+
+[node name="WanderController" parent="." instance=ExtResource( "5_xqvdj" )]
+
+[node name="hurtbox" parent="." instance=ExtResource( "6_ep4nx" )]
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource( "CapsuleShape2D_jro22" )
+
+[node name="hitbox" parent="." instance=ExtResource( "7_0qq1c" )]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" parent="hitbox" index="0"]
+polygon = PackedVector2Array(-4, -7, -4, -3, 0, -1, 5, -3, 5, -7, 0, -9)
+
+[node name="Stats" parent="." instance=ExtResource( "8_wqaae" )]
+
+[editable path="SoftCollision"]
+[editable path="PlayerDetectionZone"]
+[editable path="hurtbox"]
+[editable path="hitbox"]

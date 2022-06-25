@@ -75,10 +75,6 @@ func attack_state(_delta):
 func hit_state(_delta):
 	print(1)
 	animationState.travel("Hit")
-	velocity = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
-	if velocity != Vector2.ZERO:
-		state=MOVE
-	
 	
 func move():
 	move_and_slide() #
@@ -97,7 +93,11 @@ func hit_animation_finished():
 	hit_stats = 0
 
 func _on_hurtbox_area_entered(area):
-	state = HIT
+	if hit_stats == 0:
+		state = HIT
+		hit_stats = 1
 	stats.health -= area.damage
 	hurtbox.start_invincibility(1) #一秒无敌
+	velocity =area.knockback_vector * 50
+	move()
 	#hurtbox.creat_hit_effect(area.damage)

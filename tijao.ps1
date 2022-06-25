@@ -1,7 +1,7 @@
 cls
 
 git add .
-git commit -m "新的UI，伤害显示，地图碰撞体"
-git branch -M QZY
-git push origin QZY
+git commit -m "项目开始"
+git branch -M main
+git push origin main
 pause

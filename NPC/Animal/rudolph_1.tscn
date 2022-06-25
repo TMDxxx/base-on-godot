@@ -1,7 +1,11 @@
-[gd_scene load_steps=61 format=3 uid="uid://ds4ihvdj0p058"]
+[gd_scene load_steps=67 format=3 uid="uid://ds4ihvdj0p058"]
 
+[ext_resource type="Script" path="res://NPC/Animal/rudolph_1.gd" id="1_q5esm"]
 [ext_resource type="Texture2D" uid="uid://cp5doyqv4n8rd" path="res://Fantasy RPG Expansion Pack Snow/Characters/100%/Rudolph_01_idle (32x32).png" id="1_yvi7e"]
 [ext_resource type="Texture2D" uid="uid://brqdl2560g76" path="res://Fantasy RPG Expansion Pack Snow/Characters/100%/Rudolph_01_walk (32x32).png" id="2_22t55"]
+[ext_resource type="PackedScene" uid="uid://bgwdvroyk6weh" path="res://怪物/WanderController.tscn" id="3_vv5xl"]
+[ext_resource type="PackedScene" uid="uid://lmcgfwsc54oa" path="res://hitboxes_hurtboxes/soft_collision.tscn" id="5_q7fj5"]
+[ext_resource type="PackedScene" uid="uid://be4vghw14h43x" path="res://怪物/player_detection_zone.tscn" id="6_rffc8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8tvi"]
 atlas = ExtResource( "1_yvi7e" )
@@ -200,6 +204,35 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_sif1t"]
+resource_name = "idleleft"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
 [sub_resource type="Animation" id="Animation_o5pdt"]
 resource_name = "idleright"
 length = 0.8
@@ -229,8 +262,8 @@ tracks/1/keys = {
 "values": [8, 9, 10, 11]
 }
 
-[sub_resource type="Animation" id="Animation_sif1t"]
-resource_name = "idleleft"
+[sub_resource type="Animation" id="Animation_pquuo"]
+resource_name = "idleup"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -255,7 +288,36 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7]
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_juhqw"]
+resource_name = "waldown"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_ykk6q"]
@@ -345,64 +407,6 @@ tracks/1/keys = {
 "values": [12, 13, 14, 15]
 }
 
-[sub_resource type="Animation" id="Animation_pquuo"]
-resource_name = "idleup"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [12, 13, 14, 15]
-}
-
-[sub_resource type="Animation" id="Animation_juhqw"]
-resource_name = "waldown"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvt8w"]
 _data = {
 "RESET": SubResource( "Animation_8tou6" ),
@@ -475,8 +479,7 @@ states/IDLE/node = SubResource( "AnimationNodeBlendSpace2D_gljth" )
 states/IDLE/position = Vector2(175.5, 147.781)
 states/WALK/node = SubResource( "AnimationNodeBlendSpace2D_74ucf" )
 states/WALK/position = Vector2(438.5, 148.063)
-transitions = [&"IDLE", &"WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), &"WALK", &"IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
-start_node = "IDLE"
+transitions = ["IDLE", "WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), "WALK", "IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_0qxik"]
 
@@ -484,15 +487,22 @@ start_node = "IDLE"
 radius = 2.0
 height = 8.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3b7ra"]
+radius = 2.0
+height = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5ouv"]
+radius = 60.0
+
 [node name="Rudolph_1" type="CharacterBody2D"]
+script = ExtResource( "1_q5esm" )
 metadata/_edit_vertical_guides_ = []
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -16)
 frames = SubResource( "SpriteFrames_qw28p" )
-animation = &"idle"
-frame = 1
+animation = &"walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
@@ -512,3 +522,21 @@ parameters/WALK/blend_position = Vector2(1, 1)
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource( "CapsuleShape2D_ujqdo" )
+
+[node name="WanderController" parent="." instance=ExtResource( "3_vv5xl" )]
+
+[node name="SoftCollision" parent="." instance=ExtResource( "5_q7fj5" )]
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+shape = SubResource( "CapsuleShape2D_3b7ra" )
+one_way_collision_margin = 0.0
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( "6_rffc8" )]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+modulate = Color(1, 1, 1, 0.0941176)
+rotation = 1.5708
+shape = SubResource( "CircleShape2D_u5ouv" )
+
+[editable path="SoftCollision"]
+[editable path="PlayerDetectionZone"]

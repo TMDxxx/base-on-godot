@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ep1rqfn3ik4f"]
+[gd_scene load_steps=7 format=3 uid="uid://ep1rqfn3ik4f"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_qi4vi"]
 [ext_resource type="PackedScene" uid="uid://dyhg5jkoywi76" path="res://UI/BeastmusterUI.tscn" id="3_52njg"]
 [ext_resource type="PackedScene" uid="uid://crrc0kjj4fc8f" path="res://怪物/monster/mushy_1.tscn" id="4_ajtpy"]
 [ext_resource type="PackedScene" uid="uid://cc7gan1m6foyq" path="res://怪物/white_bone.tscn" id="5_l86dn"]
@@ -9,6 +10,7 @@
 [node name="world" type="Node2D"]
 texture_filter = 1
 y_sort_enabled = true
+script = ExtResource( "1_qi4vi" )
 
 [node name="Village" parent="." instance=ExtResource( "6_ox10k" )]
 position = Vector2(80, -8)
@@ -27,4 +29,4 @@ position = Vector2(261, 324)
 position = Vector2(385, 253)
 
 [node name="Beastmaster" parent="." instance=ExtResource( "5_ocwac" )]
-position = Vector2(121, 298)
+position = Vector2(146, 129)

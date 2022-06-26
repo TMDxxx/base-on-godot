@@ -62,6 +62,11 @@ func move_state(delta):
 		state=ATTACK
 	if Input.is_action_just_pressed("ensure"):
 		state = HIT
+	if Input.is_action_just_pressed("pause"):
+		if get_tree().paused == false:
+			get_tree().paused = true
+		else:
+			get_tree().paused = false
 	
 func roll_state(_delta):
 	velocity = roll_vector * ROLL_SPEED

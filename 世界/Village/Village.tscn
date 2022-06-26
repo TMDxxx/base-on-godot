@@ -175,7 +175,9 @@ position = Vector2(19, -28)
 position = Vector2(-27, 1)
 
 [node name="Teleporter" type="Area2D" parent="."]
-position = Vector2(-152, 259)
+position = Vector2(2, 144)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( "37_j4ydr" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]

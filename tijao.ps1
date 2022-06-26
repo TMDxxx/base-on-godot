@@ -1,7 +1,5 @@
 cls
-
 git add .
-git commit -m "项目开始"
-git branch -M main
-git push origin main
+git commit -m "实现对话"
+git push 
 pause

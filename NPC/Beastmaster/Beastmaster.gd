@@ -60,8 +60,6 @@ func move_state(delta):
 		state=ROLL
 	if Input.is_action_just_pressed("attack"):
 		state=ATTACK
-	if Input.is_action_just_pressed("ensure"):
-		state = HIT
 	if Input.is_action_just_pressed("pause"):
 		if get_tree().paused == false:
 			get_tree().paused = true

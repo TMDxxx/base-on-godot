@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bxrey1jxv46vt"]
+[gd_scene load_steps=41 format=3 uid="uid://bxrey1jxv46vt"]
 
 [ext_resource type="Script" path="res://世界/Village/Village.gd" id="1_am5nh"]
 [ext_resource type="TileSet" uid="uid://cwyrd7cl6bk3i" path="res://世界/TilemapTileset.tres" id="1_xam4y"]
@@ -33,11 +33,12 @@
 [ext_resource type="PackedScene" uid="uid://cl148mm4egcwb" path="res://NPC/village/blacksmith.tscn" id="30_qxuds"]
 [ext_resource type="PackedScene" uid="uid://bk5ffh6mfjcco" path="res://NPC/village/elf.tscn" id="31_6w7ke"]
 [ext_resource type="PackedScene" uid="uid://bbwj1knx55ahu" path="res://NPC/village/farmer.tscn" id="32_p8vay"]
-[ext_resource type="PackedScene" uid="uid://00is0k1glyiy" path="res://NPC/village/fisherman.tscn" id="33_j1k23"]
+[ext_resource type="PackedScene" uid="uid://l8gbmj3grke" path="res://NPC/village/fisherman.tscn" id="33_j1k23"]
 [ext_resource type="PackedScene" uid="uid://cn26ph4p0tvlj" path="res://NPC/village/kid_1.tscn" id="34_5fpa7"]
 [ext_resource type="PackedScene" uid="uid://yjwfsii5cqu1" path="res://NPC/village/kid_2.tscn" id="35_8trma"]
 [ext_resource type="PackedScene" uid="uid://b3v5yn5o3l0uh" path="res://NPC/village/merchant.tscn" id="36_j31uq"]
 [ext_resource type="Script" path="res://object/Teleporter.gd" id="37_j4ydr"]
+[ext_resource type="PackedScene" uid="uid://cc7gan1m6foyq" path="res://怪物/white_bone.tscn" id="38_nm2gt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xuls"]
 size = Vector2(20, 48)
@@ -163,7 +164,7 @@ position = Vector2(99, -58)
 position = Vector2(98, -22)
 
 [node name="Fisherman" parent="Monsters" instance=ExtResource( "33_j1k23" )]
-position = Vector2(119, -44)
+position = Vector2(-92, -146)
 
 [node name="Kid_1" parent="Monsters" instance=ExtResource( "34_5fpa7" )]
 position = Vector2(3, -15)
@@ -173,6 +174,15 @@ position = Vector2(19, -28)
 
 [node name="Merchant" parent="Monsters" instance=ExtResource( "36_j31uq" )]
 position = Vector2(-27, 1)
+
+[node name="Mushy_4" parent="Monsters" instance=ExtResource( "18_bvl2v" )]
+position = Vector2(325, 308)
+
+[node name="Mushy_5" parent="Monsters" instance=ExtResource( "18_bvl2v" )]
+position = Vector2(261, 324)
+
+[node name="whiteBone" parent="Monsters" instance=ExtResource( "38_nm2gt" )]
+position = Vector2(385, 253)
 
 [node name="Teleporter" type="Area2D" parent="."]
 position = Vector2(2, 144)

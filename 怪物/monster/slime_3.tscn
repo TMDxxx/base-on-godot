@@ -561,6 +561,9 @@ polygon = PackedVector2Array(-4, -7, -4, -3, 0, -2, 5, -3, 5, -7, 0, -9)
 
 [node name="Stats" parent="." instance=ExtResource( "8_c5is7" )]
 
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+
 [editable path="SoftCollision"]
 [editable path="PlayerDetectionZone"]
 [editable path="hurtbox"]

@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://cljrloqmt8k4"]
+
+[ext_resource type="FontData" uid="uid://14rcp4w6glkc" path="res://Fonts/方正像素字体15.TTF" id="1_5or1u"]
+[ext_resource type="Script" path="res://UI/dialog_box.gd" id="1_d418f"]
+[ext_resource type="Texture2D" uid="uid://cmoa1t3difioe" path="res://Fantasy RPG heroes pack/1x/Character portraits & Emotes/generic-rpg-ui-text-box.png" id="2_mrfer"]
+[ext_resource type="Texture2D" uid="uid://db2cubx6kqy4" path="res://Fantasy RPG icon pack/Individual icons (16x16)/111.png" id="3_5wiaw"]
+
+[sub_resource type="Font" id="Font_42hj6"]
+data/0 = ExtResource( "1_5or1u" )
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3mhsc"]
+content_margin_right = 60.0
+texture = ExtResource( "2_mrfer" )
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 8.0
+region_rect = Rect2(0, 0, 112, 32)
+
+[sub_resource type="Animation" id="Animation_y2kxn"]
+resource_name = "新建动画"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(418, 1), Vector2(418, 13)]
+}
+
+[sub_resource type="Animation" id="Animation_ykhlp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(418, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_noo6l"]
+_data = {
+"RESET": SubResource( "Animation_ykhlp" ),
+"新建动画": SubResource( "Animation_y2kxn" )
+}
+
+[node name="DialogBox" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource( "1_d418f" )
+
+[node name="Content" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -59.0
+offset_right = -7.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.196078, 0.133333, 0.180392, 1)
+theme_override_constants/line_spacing = 2
+theme_override_fonts/font = SubResource( "Font_42hj6" )
+theme_override_styles/normal = SubResource( "StyleBoxTexture_3mhsc" )
+text = "中文，我是李熙沛哈哈哈呃呃呃呃呃呃呃呃呃呃呃呃呃呃的撒旦飒飒
+呃呃呃呃呃呃呃呃呃呃"
+autowrap_mode = 3
+max_lines_visible = 2
+
+[node name="TextureRect" type="TextureRect" parent="Content"]
+offset_left = 418.0
+offset_top = 1.0
+offset_right = 458.0
+offset_bottom = 41.0
+texture = ExtResource( "3_5wiaw" )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Content/TextureRect"]
+autoplay = "新建动画"
+libraries = {
+"": SubResource( "AnimationLibrary_noo6l" )
+}
+
+[connection signal="visibility_changed" from="Content" to="." method="_on_content_visibility_changed"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8x641keh8u6x"]
+[gd_scene load_steps=8 format=3 uid="uid://b8x641keh8u6x"]
 
 [ext_resource type="Texture2D" uid="uid://cuhcn7tgmknm2" path="res://Fantasy RPG heroes pack/1x/Tilesets & extras (free samples)/Tileset_winter (free demo).png" id="1_7xer7"]
+[ext_resource type="Script" path="res://世界/Snow/snow.gd" id="1_c36rj"]
 [ext_resource type="Script" path="res://世界/Snow/Teleporter.gd" id="2_8h3t0"]
+[ext_resource type="PackedScene" uid="uid://l8gbmj3grke" path="res://NPC/village/fisherman.tscn" id="3_e1rw7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d33eb"]
 texture = ExtResource( "1_7xer7" )
@@ -195,6 +197,8 @@ sources/0 = SubResource( "TileSetAtlasSource_d33eb" )
 size = Vector2(20, 48)
 
 [node name="Snow" type="Node2D"]
+script = ExtResource( "1_c36rj" )
+target_path = "res://世界/Village/Village.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( "TileSet_y2wge" )
@@ -208,9 +212,17 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(655361, 262144, 10, 720897, 262144, 11, 786433, 262144, 12, 589826, 327680, 9, 655362, 327680, 10, 720898, 327680, 11, 786434, 327680, 12, 655363, 393216, 10, 720899, 393216, 11, 786435, 393216, 12, -131064, 262144, 10, -65528, 262144, 11, 8, 262144, 12, -196599, 327680, 9, -131063, 327680, 10, -65527, 327680, 11, 9, 327680, 12, -131062, 393216, 10, -65526, 393216, 11, 10, 393216, 12, 1114125, 262144, 10, 1179661, 262144, 11, 1245197, 262144, 12, 1048590, 327680, 9, 1114126, 327680, 10, 1179662, 327680, 11, 1245198, 327680, 12, 1114127, 393216, 10, 1179663, 393216, 11, 1245199, 393216, 12, 131096, 262144, 10, 196632, 262144, 11, 262168, 262144, 12, 65561, 327680, 9, 131097, 327680, 10, 196633, 327680, 11, 262169, 327680, 12, 131098, 393216, 10, 196634, 393216, 11, 262170, 393216, 12, -196581, 262144, 10, -131045, 262144, 11, -65509, 262144, 12, -262116, 327680, 9, -196580, 327680, 10, -131044, 327680, 11, -65508, 327680, 12, -196579, 393216, 10, -131043, 393216, 11, -65507, 393216, 12, 851998, 262144, 10, 917534, 262144, 11, 983070, 262144, 12, 786463, 327680, 9, 851999, 327680, 10, 917535, 327680, 11, 983071, 327680, 12, 852000, 393216, 10, 917536, 393216, 11, 983072, 393216, 12)
 
+[node name="Fisherman" parent="." instance=ExtResource( "3_e1rw7" )]
+position = Vector2(267, 90)
+
 [node name="Teleporter" type="Area2D" parent="."]
 position = Vector2(167, 81)
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( "2_8h3t0" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
 shape = SubResource( "RectangleShape2D_jf075" )
+
+[connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]

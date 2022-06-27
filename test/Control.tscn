@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://coxvqqb4rut0h"]
+
+[ext_resource type="Theme" uid="uid://dl1rq1hqlltor" path="res://UI/main_theme.tres" id="1_1apcr"]
+[ext_resource type="Texture2D" uid="uid://d057w7ko7wf3l" path="res://Fantasy RPG icon pack/Individual icons (16x16)/145.png" id="2_wclvo"]
+[ext_resource type="Texture2D" uid="uid://c02sc74q5dcag" path="res://Fantasy RPG icon pack/Individual icons (16x16)/146.png" id="3_m0tru"]
+[ext_resource type="Texture2D" uid="uid://b6fkcfvnptlii" path="res://Fantasy RPG icon pack/Individual icons (16x16)/122.png" id="4_473ng"]
+[ext_resource type="Texture2D" uid="uid://bo5sp4o7unen0" path="res://Fantasy RPG icon pack/Individual icons (16x16)/50.png" id="5_eqsfl"]
+
+[sub_resource type="Animation" id="Animation_nqjdu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OptionMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vj14n"]
+resource_name = "show_options"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OptionMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-300, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_76qox"]
+_data = {
+"RESET": SubResource( "Animation_nqjdu" ),
+"show_options": SubResource( "Animation_vj14n" )
+}
+
+[node name="Control" type="Control"]
+offset_top = 130.0
+offset_bottom = 130.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.24
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+minimum_size = Vector2(480, 130)
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 480.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( "1_1apcr" )
+metadata/_edit_layout_mode = 1
+
+[node name="StartButton" type="Button" parent="MainMenu"]
+offset_left = 218.0
+offset_right = 262.0
+offset_bottom = 25.0
+size_flags_horizontal = 6
+text = "开始"
+icon = ExtResource( "2_wclvo" )
+flat = true
+expand_icon = true
+
+[node name="ContinueButton" type="Button" parent="MainMenu"]
+offset_left = 218.0
+offset_top = 35.0
+offset_right = 262.0
+offset_bottom = 60.0
+size_flags_horizontal = 6
+text = "继续"
+icon = ExtResource( "3_m0tru" )
+flat = true
+expand_icon = true
+
+[node name="OptionButton" type="Button" parent="MainMenu"]
+offset_left = 218.0
+offset_top = 70.0
+offset_right = 262.0
+offset_bottom = 95.0
+size_flags_horizontal = 6
+text = "设置"
+icon = ExtResource( "4_473ng" )
+flat = true
+expand_icon = true
+
+[node name="QuiteButton" type="Button" parent="MainMenu"]
+offset_left = 218.0
+offset_top = 105.0
+offset_right = 262.0
+offset_bottom = 130.0
+size_flags_horizontal = 6
+text = "退出"
+icon = ExtResource( "5_eqsfl" )
+flat = true
+expand_icon = true
+
+[node name="OptionMenu" type="VBoxContainer" parent="."]
+visible = false
+minimum_size = Vector2(480, 130)
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 480.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( "1_1apcr" )
+metadata/_edit_layout_mode = 1
+
+[node name="BGMButton" type="Button" parent="OptionMenu"]
+offset_left = 196.0
+offset_right = 284.0
+offset_bottom = 25.0
+size_flags_horizontal = 6
+text = "音乐：开"
+flat = true
+
+[node name="SFXButton" type="Button" parent="OptionMenu"]
+offset_left = 196.0
+offset_top = 35.0
+offset_right = 284.0
+offset_bottom = 60.0
+size_flags_horizontal = 6
+text = "音效：开"
+flat = true
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="OptionMenu"]
+offset_left = 218.0
+offset_top = 70.0
+offset_right = 262.0
+offset_bottom = 95.0
+size_flags_horizontal = 6
+text = "返回"
+flat = true
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource( "AnimationLibrary_76qox" )
+}

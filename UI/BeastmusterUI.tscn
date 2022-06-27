@@ -1,7 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyhg5jkoywi76"]
+[gd_scene load_steps=26 format=3 uid="uid://dyhg5jkoywi76"]
 
 [ext_resource type="Texture2D" uid="uid://cvg300x2ecvml" path="res://Fantasy RPG heroes pack/1x/Character portraits & Emotes/Beastmaster.png" id="1_recdt"]
 [ext_resource type="Script" path="res://UI/BeastmusterUI.gd" id="1_yq6t5"]
+[ext_resource type="Texture2D" uid="uid://b6fkcfvnptlii" path="res://Fantasy RPG icon pack/Individual icons (16x16)/122.png" id="3_11rtf"]
+[ext_resource type="Texture2D" uid="uid://t6054n5dscqb" path="res://Fantasy RPG icon pack/Individual icons (16x16)/211.png" id="4_7dhvk"]
+[ext_resource type="Texture2D" uid="uid://njsrnyh6fpdw" path="res://Fantasy RPG icon pack/Individual icons (16x16)/212.png" id="5_755fw"]
+[ext_resource type="Texture2D" uid="uid://dywm4rckt3q44" path="res://Fantasy RPG icon pack/Individual icons (16x16)/213.png" id="6_35yo0"]
+[ext_resource type="Texture2D" uid="uid://dcn877nnr3ttj" path="res://Fantasy RPG icon pack/Individual icons (16x16)/214.png" id="7_cyvqq"]
+[ext_resource type="Texture2D" uid="uid://dc50kbi5v2m6n" path="res://Fantasy RPG icon pack/Individual icons (16x16)/215.png" id="8_4iw35"]
+[ext_resource type="Texture2D" uid="uid://chylck0ftnr7g" path="res://Fantasy RPG icon pack/Individual icons (16x16)/216.png" id="9_ycwkp"]
+[ext_resource type="Texture2D" uid="uid://c4k4jraxtoef5" path="res://Fantasy RPG icon pack/Individual icons (16x16)/217.png" id="10_edbiq"]
+[ext_resource type="Texture2D" uid="uid://drvrqfy8dubre" path="res://Fantasy RPG icon pack/Individual icons (16x16)/218.png" id="11_ottnt"]
+[ext_resource type="PackedScene" uid="uid://dyftd6ixh78y3" path="res://UI/pause_menu.tscn" id="12_ivhy8"]
+[ext_resource type="PackedScene" uid="uid://do12r6glaf0g6" path="res://UI/you_die.tscn" id="13_oys3r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiq7p"]
 bg_color = Color(0.6, 0.0196078, 0, 1)
@@ -17,34 +28,72 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57hk8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lm3ea"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vgwil"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8f06"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_qy3xq"]
+action = &"pause"
+
+[sub_resource type="Shortcut" id="Shortcut_3ucgi"]
+events = [SubResource( "InputEventAction_qy3xq" )]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vnkgl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b0ulj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v1rj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3d4m6"]
+
 [node name="Control" type="Control"]
-offset_right = 40.0
-offset_bottom = 40.0
+minimum_size = Vector2(480, 260)
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( "1_yq6t5" )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 107.0
-offset_bottom = 34.0
-metadata/_edit_layout_mode = 0
-metadata/_edit_use_custom_anchors = false
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+offset_right = 480.0
+offset_bottom = 128.0
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+offset_right = 452.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control"]
+anchor_right = 1.0
+offset_right = -322.0
+offset_bottom = 34.0
+grow_horizontal = 2
+metadata/_edit_layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Control/HBoxContainer"]
 offset_right = 18.0
 offset_bottom = 34.0
 focus_neighbor_right = NodePath("../GridContainer")
 texture = ExtResource( "1_recdt" )
 stretch_mode = 3
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/Control/HBoxContainer"]
 offset_left = 22.0
-offset_right = 107.0
+offset_right = 130.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
 columns = 2
 metadata/_edit_layout_mode = 0
 metadata/_edit_use_custom_anchors = false
 
-[node name="Label" type="Label" parent="HBoxContainer/GridContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Control/HBoxContainer/GridContainer"]
 minimum_size = Vector2(10, 2)
 offset_right = 11.0
 offset_bottom = 15.0
@@ -53,31 +102,30 @@ theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 8
 text = "HP"
 
-[node name="HP" type="ProgressBar" parent="HBoxContainer/GridContainer"]
+[node name="HP" type="ProgressBar" parent="VBoxContainer/HBoxContainer/Control/HBoxContainer/GridContainer"]
 minimum_size = Vector2(0, 6)
-offset_left = 19.0
+offset_left = 17.0
 offset_top = 4.0
-offset_right = 85.0
+offset_right = 108.0
 offset_bottom = 10.0
 size_flags_vertical = 4
 theme_override_styles/fg = SubResource( "StyleBoxFlat_hiq7p" )
 value = 45.0
 percent_visible = false
 
-[node name="Label2" type="Label" parent="HBoxContainer/GridContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Control/HBoxContainer/GridContainer"]
 offset_top = 19.0
-offset_right = 15.0
+offset_right = 13.0
 offset_bottom = 34.0
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
-text = "EXP
-"
+text = "MP"
 
-[node name="EXP" type="ProgressBar" parent="HBoxContainer/GridContainer"]
+[node name="MP" type="ProgressBar" parent="VBoxContainer/HBoxContainer/Control/HBoxContainer/GridContainer"]
 minimum_size = Vector2(0, 6)
-offset_left = 19.0
+offset_left = 17.0
 offset_top = 23.0
-offset_right = 85.0
+offset_right = 108.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -85,3 +133,136 @@ theme_override_styles/fg = SubResource( "StyleBoxFlat_e7032" )
 step = 5.0
 value = 45.0
 percent_visible = false
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control"]
+offset_left = 328.0
+offset_top = -2.0
+offset_right = 368.0
+offset_bottom = 38.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_right = NodePath("../../Setting")
+
+[node name="Setting" type="Button" parent="VBoxContainer/HBoxContainer"]
+offset_left = 456.0
+offset_right = 480.0
+offset_bottom = 24.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0.243137)
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_57hk8" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_lm3ea" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_vgwil" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_n8f06" )
+shortcut = SubResource( "Shortcut_3ucgi" )
+icon = ExtResource( "3_11rtf" )
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+offset_top = 132.0
+offset_right = 480.0
+offset_bottom = 260.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+offset_left = 144.0
+offset_top = 104.0
+offset_right = 336.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_vnkgl" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_b0ulj" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_8v1rj" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_3d4m6" )
+icon = ExtResource( "4_7dhvk" )
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_left = 24.0
+offset_right = 48.0
+offset_bottom = 24.0
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_vnkgl" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_b0ulj" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_8v1rj" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_3d4m6" )
+icon = ExtResource( "5_755fw" )
+flat = true
+
+[node name="Button3" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_left = 48.0
+offset_right = 72.0
+offset_bottom = 24.0
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_vnkgl" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_b0ulj" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_8v1rj" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_3d4m6" )
+icon = ExtResource( "6_35yo0" )
+flat = true
+
+[node name="Button4" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_left = 72.0
+offset_right = 96.0
+offset_bottom = 24.0
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_vnkgl" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_b0ulj" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_8v1rj" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_3d4m6" )
+icon = ExtResource( "7_cyvqq" )
+flat = true
+
+[node name="Button5" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_left = 96.0
+offset_right = 120.0
+offset_bottom = 24.0
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_vnkgl" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_b0ulj" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_8v1rj" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_3d4m6" )
+icon = ExtResource( "8_4iw35" )
+flat = true
+
+[node name="Button6" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_left = 120.0
+offset_right = 144.0
+offset_bottom = 24.0
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_vnkgl" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_b0ulj" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_8v1rj" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_3d4m6" )
+icon = ExtResource( "9_ycwkp" )
+flat = true
+
+[node name="Button7" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_left = 144.0
+offset_right = 168.0
+offset_bottom = 24.0
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_vnkgl" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_b0ulj" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_8v1rj" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_3d4m6" )
+icon = ExtResource( "10_edbiq" )
+flat = true
+
+[node name="Button8" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_left = 168.0
+offset_right = 192.0
+offset_bottom = 24.0
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_vnkgl" )
+theme_override_styles/pressed = SubResource( "StyleBoxEmpty_b0ulj" )
+theme_override_styles/disabled = SubResource( "StyleBoxEmpty_8v1rj" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_3d4m6" )
+icon = ExtResource( "11_ottnt" )
+flat = true
+
+[node name="PauseMenu" parent="." instance=ExtResource( "12_ivhy8" )]
+visible = false
+
+[node name="YouDie" parent="." instance=ExtResource( "13_oys3r" )]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Setting" to="." method="_on_setting_pressed"]

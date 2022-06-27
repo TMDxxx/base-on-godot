@@ -27,15 +27,15 @@ _global_script_class_icons={
 [application]
 
 config/name="课程设计Ⅲ"
-run/main_scene="res://世界/Village/Village.tscn"
+run/main_scene="res://UI/title_screen.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
 config/icon="res://icon.png"
 
 [autoload]
 
-BeastmasterStatus="*res://NPC/Beastmaster/Beastmaster_status.tscn"
 ScaneChanger="*res://Globals/scane_changer.tscn"
 DialogBox="*res://UI/dialog_box.tscn"
+BeastmasterStatus="*res://NPC/Beastmaster/Beastmaster_status.tscn"
 
 [display]
 

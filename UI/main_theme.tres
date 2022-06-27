@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dl1rq1hqlltor"]
+
+[ext_resource type="FontData" uid="uid://14rcp4w6glkc" path="res://Fonts/方正像素字体15.TTF" id="1_4757k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_np22t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eod7y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0oecm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jbmk"]
+
+[sub_resource type="Font" id="Font_ymtdx"]
+spacing_top = 1
+spacing_bottom = 1
+data/0 = ExtResource( "1_4757k" )
+
+[resource]
+default_font = SubResource( "Font_ymtdx" )
+default_font_size = 22
+Button/colors/font_color = Color(0.211765, 0.870588, 0.6, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.16, 0.16, 0.16, 1)
+Button/colors/font_hover_color = Color(0.360784, 0.360784, 0.360784, 1)
+Button/colors/font_hover_pressed_color = Color(0.360784, 0.360784, 0.360784, 1)
+Button/colors/font_outline_color = Color(0.360784, 0.360784, 0.360784, 1)
+Button/colors/font_pressed_color = Color(0.73, 0.73, 0.73, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 0
+Button/styles/disabled = null
+Button/styles/focus = SubResource( "StyleBoxEmpty_np22t" )
+Button/styles/hover = SubResource( "StyleBoxEmpty_eod7y" )
+Button/styles/normal = SubResource( "StyleBoxEmpty_0oecm" )
+Button/styles/pressed = SubResource( "StyleBoxEmpty_4jbmk" )
+VBoxContainer/constants/separation = 10

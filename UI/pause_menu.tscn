@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyftd6ixh78y3"]
+
+[ext_resource type="Script" path="res://PauseMenu.gd" id="1_nmo4h"]
+[ext_resource type="Theme" uid="uid://dl1rq1hqlltor" path="res://UI/main_theme.tres" id="2_wfkgh"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_7bluw"]
+action = &"pause"
+
+[sub_resource type="Shortcut" id="Shortcut_rari4"]
+events = [SubResource( "InputEventAction_7bluw" )]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_nmo4h" )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.890196)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+offset_left = 212.0
+offset_top = 100.0
+offset_right = 267.0
+offset_bottom = 160.0
+theme = ExtResource( "2_wfkgh" )
+
+[node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer"]
+offset_right = 55.0
+offset_bottom = 25.0
+shortcut = SubResource( "Shortcut_rari4" )
+text = "继 续"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+offset_top = 35.0
+offset_right = 55.0
+offset_bottom = 60.0
+text = "退 出"
+
+[connection signal="visibility_changed" from="." to="." method="_on_pause_menu_visibility_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

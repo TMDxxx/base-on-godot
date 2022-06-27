@@ -25,7 +25,6 @@ var hit_stats = 0
 
 func _ready():
 	randomize()
-	stats.connect("no_health",Callable(self,"queue_free"))
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 
@@ -60,11 +59,7 @@ func move_state(delta):
 		state=ROLL
 	if Input.is_action_just_pressed("attack"):
 		state=ATTACK
-	if Input.is_action_just_pressed("pause"):
-		if get_tree().paused == false:
-			get_tree().paused = true
-		else:
-			get_tree().paused = false
+	
 	
 func roll_state(_delta):
 	velocity = roll_vector * ROLL_SPEED
@@ -76,14 +71,12 @@ func attack_state(_delta):
 	animationState.travel("Attack")
 	
 func hit_state(_delta):
-	print(1)
 	animationState.travel("Hit")
 	
 func move():
 	move_and_slide() #
 	
 func attack_animation_finished():
-	print("attack")
 	state=MOVE
 
 func roll_animation_finished():
@@ -91,7 +84,6 @@ func roll_animation_finished():
 	state=MOVE
 
 func hit_animation_finished():
-	print("hit")
 	state=MOVE
 	hit_stats = 0
 

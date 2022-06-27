@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cg85e3rt1jeu0"]
+[gd_scene load_steps=72 format=3 uid="uid://cg85e3rt1jeu0"]
 
 [ext_resource type="Texture2D" uid="uid://d0c1ecptrb7tt" path="res://Fantasy RPG asset pack/Monsters and animals/Slime 03_idle (16x16).png" id="1_nr72f"]
 [ext_resource type="Script" path="res://怪物/white_bone.gd" id="1_vjlg3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://2rmdh85t82oq" path="res://hitboxes_hurtboxes/hurtbox.tscn" id="6_pijxt"]
 [ext_resource type="PackedScene" uid="uid://ctdby4ex6eomd" path="res://hitboxes_hurtboxes/hitbox.tscn" id="7_vbt7e"]
 [ext_resource type="PackedScene" uid="uid://b32v7pmlkhl8f" path="res://属性/stats.tscn" id="8_c5is7"]
+[ext_resource type="AudioStream" uid="uid://bevwqhqg34iqp" path="res://sound/monster/小怪攻击3－YS070517.wav" id="10_beftl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqeef"]
 atlas = ExtResource( "1_nr72f" )
@@ -560,6 +561,9 @@ collision_layer = 4
 polygon = PackedVector2Array(-4, -7, -4, -3, 0, -2, 5, -3, 5, -7, 0, -9)
 
 [node name="Stats" parent="." instance=ExtResource( "8_c5is7" )]
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( "10_beftl" )
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]

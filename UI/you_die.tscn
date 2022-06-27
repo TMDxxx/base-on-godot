@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://do12r6glaf0g6"]
+
+[ext_resource type="Script" path="res://UI/you_die.gd" id="1_5h0b5"]
+[ext_resource type="Theme" uid="uid://dl1rq1hqlltor" path="res://UI/main_theme.tres" id="2_qxj0g"]
+
+[node name="YouDie" type="Control"]
+process_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_5h0b5" )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.890196)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+offset_left = 185.0
+offset_top = 98.0
+offset_right = 295.0
+offset_bottom = 161.0
+theme = ExtResource( "2_qxj0g" )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+offset_right = 110.0
+offset_bottom = 28.0
+text = "YOU DIE"
+horizontal_alignment = 1
+
+[node name="BackMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+offset_top = 38.0
+offset_right = 110.0
+offset_bottom = 63.0
+text = "返回主菜单"
+
+[connection signal="visibility_changed" from="." to="." method="_on_you_die_visibility_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackMenu" to="." method="_on_back_menu_pressed"]

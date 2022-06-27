@@ -10,4 +10,4 @@ func _ready():
 	add_child(beastmaster)
 
 func _on_teleporter_body_entered(body):
-	get_tree().change_scene(target_path)
+	ScaneChanger.reload_world(target_path)

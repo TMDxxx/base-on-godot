@@ -1,0 +1,289 @@
+[gd_scene load_steps=18 format=3 uid="uid://y76c2g1owx22"]
+
+[ext_resource type="Script" path="res://UI/title_screen.gd" id="1_4oifl"]
+[ext_resource type="FontData" uid="uid://14rcp4w6glkc" path="res://Fonts/方正像素字体15.TTF" id="1_cb03b"]
+[ext_resource type="Texture2D" uid="uid://d17p382a2jbph" path="res://UI/texture/FANTASY LANDSCAPE BACKGROUND 1.png" id="1_nowsf"]
+[ext_resource type="Theme" uid="uid://dl1rq1hqlltor" path="res://UI/main_theme.tres" id="2_uw35m"]
+[ext_resource type="Texture2D" uid="uid://d057w7ko7wf3l" path="res://Fantasy RPG icon pack/Individual icons (16x16)/145.png" id="3_nr0vq"]
+[ext_resource type="Texture2D" uid="uid://c02sc74q5dcag" path="res://Fantasy RPG icon pack/Individual icons (16x16)/146.png" id="4_cgj41"]
+[ext_resource type="Texture2D" uid="uid://b6fkcfvnptlii" path="res://Fantasy RPG icon pack/Individual icons (16x16)/122.png" id="5_h4ubd"]
+[ext_resource type="Texture2D" uid="uid://bo5sp4o7unen0" path="res://Fantasy RPG icon pack/Individual icons (16x16)/50.png" id="6_33y78"]
+[ext_resource type="AudioStream" uid="uid://b6ktbfhlaxs4c" path="res://sound/main_menu/U.I. Sound 19.wav" id="9_200hl"]
+[ext_resource type="AudioStream" uid="uid://drf3bunsof017" path="res://sound/main_menu/Celestial.mp3" id="10_iescq"]
+
+[sub_resource type="Font" id="Font_73fui"]
+data/0 = ExtResource( "1_cb03b" )
+
+[sub_resource type="Animation" id="Animation_00hsu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.279253]
+}
+
+[sub_resource type="Animation" id="Animation_gb6vx"]
+resource_name = "新建动画"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qivji"]
+_data = {
+"RESET": SubResource( "Animation_00hsu" ),
+"新建动画": SubResource( "Animation_gb6vx" )
+}
+
+[sub_resource type="Animation" id="Animation_nqjdu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OptionMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vj14n"]
+resource_name = "show_options"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OptionMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-300, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_76qox"]
+_data = {
+"RESET": SubResource( "Animation_nqjdu" ),
+"show_options": SubResource( "Animation_vj14n" )
+}
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_4oifl" )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.240741)
+texture = ExtResource( "1_nowsf" )
+centered = false
+
+[node name="UI" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_layout_mode = 1
+
+[node name="contain" type="Control" parent="UI"]
+minimum_size = Vector2(0, 50)
+offset_right = 480.0
+offset_bottom = 50.0
+
+[node name="Label" type="Label" parent="UI/contain"]
+offset_top = 14.0
+offset_right = 480.0
+offset_bottom = 61.0
+rotation = -0.279253
+pivot_offset = Vector2(242, 23)
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0745098, 0.576471, 0.741176, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = SubResource( "Font_73fui" )
+theme_override_font_sizes/font_size = 43
+text = "课程设计三"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/contain/Label"]
+autoplay = "新建动画"
+libraries = {
+"": SubResource( "AnimationLibrary_qivji" )
+}
+
+[node name="Control" type="Control" parent="UI"]
+offset_top = 80.0
+offset_bottom = 80.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="UI/Control"]
+minimum_size = Vector2(480, 130)
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 480.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( "2_uw35m" )
+metadata/_edit_layout_mode = 1
+
+[node name="StartButton" type="Button" parent="UI/Control/MainMenu"]
+offset_left = 218.0
+offset_right = 262.0
+offset_bottom = 25.0
+size_flags_horizontal = 6
+text = "开始"
+icon = ExtResource( "3_nr0vq" )
+flat = true
+expand_icon = true
+
+[node name="ContinueButton" type="Button" parent="UI/Control/MainMenu"]
+offset_left = 218.0
+offset_top = 35.0
+offset_right = 262.0
+offset_bottom = 60.0
+size_flags_horizontal = 6
+text = "继续"
+icon = ExtResource( "4_cgj41" )
+flat = true
+expand_icon = true
+
+[node name="OptionButton" type="Button" parent="UI/Control/MainMenu"]
+offset_left = 218.0
+offset_top = 70.0
+offset_right = 262.0
+offset_bottom = 95.0
+size_flags_horizontal = 6
+text = "设置"
+icon = ExtResource( "5_h4ubd" )
+flat = true
+expand_icon = true
+
+[node name="QuiteButton" type="Button" parent="UI/Control/MainMenu"]
+offset_left = 218.0
+offset_top = 105.0
+offset_right = 262.0
+offset_bottom = 130.0
+size_flags_horizontal = 6
+text = "退出"
+icon = ExtResource( "6_33y78" )
+flat = true
+expand_icon = true
+
+[node name="OptionMenu" type="VBoxContainer" parent="UI/Control"]
+minimum_size = Vector2(480, 130)
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 480.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( "2_uw35m" )
+metadata/_edit_layout_mode = 1
+
+[node name="BGMButton" type="Button" parent="UI/Control/OptionMenu"]
+offset_left = 196.0
+offset_right = 284.0
+offset_bottom = 25.0
+size_flags_horizontal = 6
+text = "音乐：开"
+flat = true
+
+[node name="SFXButton" type="Button" parent="UI/Control/OptionMenu"]
+offset_left = 196.0
+offset_top = 35.0
+offset_right = 284.0
+offset_bottom = 60.0
+size_flags_horizontal = 6
+text = "音效：开"
+flat = true
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="UI/Control/OptionMenu"]
+offset_left = 218.0
+offset_top = 70.0
+offset_right = 262.0
+offset_bottom = 95.0
+size_flags_horizontal = 6
+text = "返回"
+flat = true
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Control"]
+libraries = {
+"": SubResource( "AnimationLibrary_76qox" )
+}
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "9_200hl" )
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( "10_iescq" )
+autoplay = true
+bus = &"BGM"
+
+[connection signal="pressed" from="UI/Control/MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/Control/MainMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="UI/Control/MainMenu/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="UI/Control/MainMenu/QuiteButton" to="." method="_on_quite_button_pressed"]
+[connection signal="pressed" from="UI/Control/OptionMenu/BGMButton" to="." method="_on_bgm_button_pressed"]
+[connection signal="pressed" from="UI/Control/OptionMenu/SFXButton" to="." method="_on_sfx_button_pressed"]
+[connection signal="pressed" from="UI/Control/OptionMenu/BackButton" to="." method="_on_back_button_pressed"]

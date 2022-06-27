@@ -13,6 +13,7 @@ func set_health(value):
 	emit_signal("health_changed", health)
 	if health<=0:
 		emit_signal("no_health")
+		print("no health")
 
 func set_max_health(value):
 	max_health = value

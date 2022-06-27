@@ -20,7 +20,7 @@ var state = IDLE
 @onready var animationPlayer = $AnimatedSprite2D/AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
-
+@onready var hit = $hit
 @onready var stats = $Stats
 @onready var playDetectionZone = $PlayerDetectionZone
 @onready var sprite = $AnimatedSprite2D
@@ -87,6 +87,7 @@ func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
 	velocity = area.knockback_vector * 120
 	hurtbox.creat_hit_effect(area.damage)
+	hit.play()
 	
 func _on_stats_no_health():
 	queue_free()

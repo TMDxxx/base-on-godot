@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drf3bunsof017"
+path="res://.godot/imported/Celestial.mp3-a71236ec7fe73522f4cae0c531e87edd.mp3str"
+
+[deps]
+
+source_file="res://sound/main_menu/Celestial.mp3"
+dest_files=["res://.godot/imported/Celestial.mp3-a71236ec7fe73522f4cae0c531e87edd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0

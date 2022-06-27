@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ctdby4ex6eomd" path="res://hitboxes_hurtboxes/hitbox.tscn" id="6_v0ndd"]
 [ext_resource type="PackedScene" uid="uid://lmcgfwsc54oa" path="res://hitboxes_hurtboxes/soft_collision.tscn" id="7_dnmn1"]
 [ext_resource type="PackedScene" uid="uid://bgwdvroyk6weh" path="res://怪物/WanderController.tscn" id="8_nh884"]
+[ext_resource type="AudioStream" uid="uid://bevwqhqg34iqp" path="res://sound/monster/小怪攻击3－YS070517.wav" id="10_1s0i4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5u3g"]
 atlas = ExtResource( "1_y6w4i" )
@@ -151,6 +152,62 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_8tou6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dbchf"]
+resource_name = "idledown"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="Animation" id="Animation_sif1t"]
 resource_name = "idleleft"
 length = 0.8
@@ -267,35 +324,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_vxxy8"]
-resource_name = "walkright"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 11]
-}
-
 [sub_resource type="Animation" id="Animation_ykk6q"]
 resource_name = "walkleft"
 length = 0.8
@@ -325,8 +353,8 @@ tracks/1/keys = {
 "values": [4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_dbchf"]
-resource_name = "idledown"
+[sub_resource type="Animation" id="Animation_vxxy8"]
+resource_name = "walkright"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -339,7 +367,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"idle"]
+"values": [&"walk"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -351,7 +379,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_qj1lc"]
@@ -381,33 +409,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15]
-}
-
-[sub_resource type="Animation" id="Animation_8tou6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [&"walk"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvt8w"]
@@ -482,8 +483,7 @@ states/IDLE/node = SubResource( "AnimationNodeBlendSpace2D_gljth" )
 states/IDLE/position = Vector2(175.5, 147.781)
 states/WALK/node = SubResource( "AnimationNodeBlendSpace2D_74ucf" )
 states/WALK/position = Vector2(438.5, 148.063)
-transitions = [&"IDLE", &"WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), &"WALK", &"IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
-start_node = "IDLE"
+transitions = ["IDLE", "WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), "WALK", "IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ts4l0"]
 
@@ -498,10 +498,6 @@ height = 12.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rcalh"]
 radius = 53.0377
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tul46"]
-radius = 4.0
-height = 12.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80prb"]
 radius = 2.0
 height = 8.0
@@ -514,8 +510,7 @@ script = ExtResource( "1_ck2aw" )
 texture_filter = 1
 position = Vector2(0, -8)
 frames = SubResource( "SpriteFrames_tm3ux" )
-animation = &"idle"
-frame = 6
+animation = &"walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
@@ -557,10 +552,6 @@ shape = SubResource( "CircleShape2D_rcalh" )
 collision_layer = 4
 damage = 3
 
-[node name="CollisionShape2D" parent="hitbox" index="0"]
-position = Vector2(0, -6)
-shape = SubResource( "CapsuleShape2D_tul46" )
-
 [node name="SoftCollision" parent="." instance=ExtResource( "7_dnmn1" )]
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
@@ -569,6 +560,10 @@ rotation = 1.5708
 shape = SubResource( "CapsuleShape2D_80prb" )
 
 [node name="WanderController" parent="." instance=ExtResource( "8_nh884" )]
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( "10_1s0i4" )
+bus = &"SFX"
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]

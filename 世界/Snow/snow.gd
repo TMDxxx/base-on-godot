@@ -3,6 +3,7 @@ extends Node2D
 const Beastmaster = preload("res://NPC/Beastmaster/Beastmaster.tscn")
 @export_file("*.tscn") var target_path = "res://世界/Village/Village.tscn"
 @onready var timer=$Timer
+@onready var chuansongmeng=$CuansongDoor
 
 var player = Beastmaster.instantiate()
 
@@ -38,7 +39,7 @@ func make_Enemys():
 		make_enemy_num+=1
 		
 	if player.kill_num-base_kill_num>=MAX_ENEMY_NUM:
-		print("successed")
+		chuansongmeng.set_avaliable()
 		if make_enemy_num>=MAX_ENEMY_NUM :
 			make_enemy_flag=false
 	

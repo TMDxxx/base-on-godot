@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://biwot2aoef7kb"]
+[gd_scene load_steps=151 format=3 uid="uid://biwot2aoef7kb"]
 
 [ext_resource type="Script" path="res://NPC/Beastmaster/Beastmaster.gd" id="1_xc8e0"]
 [ext_resource type="Texture2D" uid="uid://dbe56vw53t0y1" path="res://Fantasy RPG heroes pack/1x/Character sprites/Beastmaster_melee.png" id="2_ndyjw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2x3bychyhrd8" path="res://Fantasy RPG heroes pack/1x/Character sprites/Beastmaster_roll.png" id="5_cb16a"]
 [ext_resource type="Texture2D" uid="uid://1ebc5clwlb0p" path="res://Fantasy RPG heroes pack/1x/Character sprites/Beastmaster_hit.png" id="6_kx1ll"]
 [ext_resource type="PackedScene" uid="uid://ctdby4ex6eomd" path="res://hitboxes_hurtboxes/hitbox.tscn" id="6_sevmb"]
+[ext_resource type="Script" path="res://NPC/Beastmaster/CollisionShape2D.gd" id="7_aty6w"]
 [ext_resource type="Script" path="res://NPC/Beastmaster/swordhitbox.gd" id="7_wd3o7"]
 [ext_resource type="PackedScene" uid="uid://2rmdh85t82oq" path="res://hitboxes_hurtboxes/hurtbox.tscn" id="8_gjosr"]
 [ext_resource type="PackedScene" uid="uid://dyhg5jkoywi76" path="res://UI/BeastmusterUI.tscn" id="10_lm4we"]
@@ -1534,6 +1535,7 @@ libraries = {
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource( "CapsuleShape2D_vubml" )
+script = ExtResource( "7_aty6w" )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( "AnimationNodeStateMachine_2540j" )

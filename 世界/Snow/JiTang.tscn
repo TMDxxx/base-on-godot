@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj6qjy3w5td1o"]
+[gd_scene load_steps=15 format=3 uid="uid://cj6qjy3w5td1o"]
 
 [ext_resource type="Script" path="res://世界/Snow/JiTang.gd" id="1_0pbpt"]
 [ext_resource type="Texture2D" uid="uid://16kupi31v2pc" path="res://Items/Sprite-0002.png" id="1_vltrr"]
+[ext_resource type="Texture2D" uid="uid://bspdx1pnvibxd" path="res://Items/LargeShadow.png" id="2_sp0kf"]
 [ext_resource type="Texture2D" uid="uid://c8flkwktmfu6b" path="res://Fantasy RPG heroes pack/1x/Character portraits & Emotes/Emote_talking.png" id="3_og5oo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_enwws"]
@@ -100,8 +101,11 @@ _data = {
 [node name="JiTang" type="Node2D"]
 script = ExtResource( "1_0pbpt" )
 
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(3, 8)
+texture = ExtResource( "2_sp0kf" )
+
 [node name="Sprite-0003" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
 texture = ExtResource( "1_vltrr" )
 
 [node name="Talk_Area" type="Area2D" parent="."]

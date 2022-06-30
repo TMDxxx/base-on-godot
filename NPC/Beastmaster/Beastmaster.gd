@@ -67,6 +67,7 @@ func move_state(delta):
 func roll_state(_delta):
 	velocity = roll_vector * ROLL_SPEED
 	animationState.travel("Roll")
+	hurtbox.start_invincibility(0.5)
 	move()
 	
 func attack_state(_delta):

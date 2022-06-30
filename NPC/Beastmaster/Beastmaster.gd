@@ -23,12 +23,15 @@ var hit_stats = 0
 @onready var swordHitbox = $HitboxPivot/swordHitbox
 @onready var hurtbox = $hurtbox
 
+var kill_num=0
+
 func _ready():
 	randomize()
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 
 func _physics_process(delta):
+	kill_num=swordHitbox.kill_num
 	match state:
 		MOVE:
 			move_state(delta)

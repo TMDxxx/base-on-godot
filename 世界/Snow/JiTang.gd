@@ -1,6 +1,8 @@
 extends Node2D
 const dialog = preload("res://UI/dialog_box.tscn")
 @onready var aniPlayer=$AnimatedSprite2D
+@onready var SnowMap=get_node("../")
+
 var isonarea=false
 
 func _ready():
@@ -13,7 +15,7 @@ func _unhandled_input(event):
 		{text="hello，你来自哪里"},
 		{text="山东菏泽曹县"},
 	])
-	
+		SnowMap.set_indexed("make_enemy_flag",true)
 	
 
 

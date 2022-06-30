@@ -29,6 +29,8 @@ var state = IDLE
 @onready var softCollision = $SoftCollision 
 @onready var wanderController = $WanderController
 
+var player_area=null
+
 func _ready():
 	animationTree.active = true
 	
@@ -84,12 +86,14 @@ func seek_player():
 		state = CHASE
 
 func _on_hurtbox_area_entered(area):
+	player_area=area
 	stats.health -= area.damage
 	velocity = area.knockback_vector * 120
 	hurtbox.creat_hit_effect(area.damage)
-	hit.play()
+	#hit.play()
 	
 func _on_stats_no_health():
+	player_area.add_kill_num()
 	queue_free()
 	var white_bone_damge = white_bone_damged.instantiate()
 	get_parent().add_child(white_bone_damge)

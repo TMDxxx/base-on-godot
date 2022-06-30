@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2jotx1kaih78"]
+
+[ext_resource type="Texture2D" uid="uid://0mhed3lirqhr" path="res://Fantasy RPG asset pack/Objects/Chest_small.png" id="1_jao7a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ropk"]
+atlas = ExtResource( "1_jao7a" )
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcay0"]
+atlas = ExtResource( "1_jao7a" )
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhfxj"]
+atlas = ExtResource( "1_jao7a" )
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6ls0"]
+atlas = ExtResource( "1_jao7a" )
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8cv84"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_6ropk" ), SubResource( "AtlasTexture_mcay0" )],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [SubResource( "AtlasTexture_jhfxj" ), SubResource( "AtlasTexture_l6ls0" )],
+"loop": true,
+"name": &"open",
+"speed": 2.0
+}]
+
+[node name="Chest_mini" type="AnimatedSprite2D"]
+frames = SubResource( "SpriteFrames_8cv84" )
+animation = &"open"
+frame = 1
+playing = true

@@ -29,6 +29,7 @@ func _unhandled_input(event):
 		# get_tree().set_input_as_handled()
 	
 func show_dialog_box(_dialogs):
+	BeastmusterUi.hide()
 	dialogs = _dialogs
 	content.show()
 	_show_dialog(0)

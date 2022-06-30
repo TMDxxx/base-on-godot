@@ -1579,10 +1579,10 @@ shape = SubResource( "CapsuleShape2D_phs4d" )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, -2)
 current = true
-limit_left = -1500
-limit_top = -1500
+limit_left = 0
+limit_top = 0
 limit_right = 1500
-limit_bottom = 1500
+limit_bottom = 1008
 smoothing_enabled = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

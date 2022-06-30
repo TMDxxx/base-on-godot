@@ -1,7 +1,10 @@
-[gd_scene load_steps=61 format=3 uid="uid://cn26ph4p0tvlj"]
+[gd_scene load_steps=72 format=3 uid="uid://cn26ph4p0tvlj"]
 
 [ext_resource type="Texture2D" uid="uid://c0ndod8qhn7a7" path="res://Fantasy RPG asset pack/NPCs/Medieval Townsfolk pack (bonus)/1x/Kid01_idle.png" id="1_dnol4"]
+[ext_resource type="Script" path="res://NPC/village/kid_1.gd" id="1_hyphl"]
 [ext_resource type="Texture2D" uid="uid://bvo4vyln3mhv5" path="res://Fantasy RPG asset pack/NPCs/Medieval Townsfolk pack (bonus)/1x/Kid01_walk.png" id="2_6f8qe"]
+[ext_resource type="Texture2D" uid="uid://c8flkwktmfu6b" path="res://Fantasy RPG heroes pack/1x/Character portraits & Emotes/Emote_talking.png" id="2_o3ar2"]
+[ext_resource type="PackedScene" uid="uid://bstc07qxoqlq5" path="res://UI/talk_area.tscn" id="5_pm7vg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nj14s"]
 atlas = ExtResource( "1_dnol4" )
@@ -200,6 +203,35 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_sif1t"]
+resource_name = "idleleft"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
 [sub_resource type="Animation" id="Animation_o5pdt"]
 resource_name = "idleright"
 length = 0.8
@@ -229,8 +261,8 @@ tracks/1/keys = {
 "values": [8, 9, 10, 11]
 }
 
-[sub_resource type="Animation" id="Animation_sif1t"]
-resource_name = "idleleft"
+[sub_resource type="Animation" id="Animation_pquuo"]
+resource_name = "idleup"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -255,7 +287,36 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7]
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_juhqw"]
+resource_name = "waldown"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_ykk6q"]
@@ -345,66 +406,38 @@ tracks/1/keys = {
 "values": [12, 13, 14, 15]
 }
 
-[sub_resource type="Animation" id="Animation_pquuo"]
-resource_name = "idleup"
-length = 0.8
+[sub_resource type="Animation" id="Animation_a4mk5"]
+resource_name = "Bubble"
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
+tracks/0/path = NodePath("../Bubble:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"idle"]
+"values": [&"bubble"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
+tracks/1/path = NodePath("../Bubble:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 14, 15]
-}
-
-[sub_resource type="Animation" id="Animation_juhqw"]
-resource_name = "waldown"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvt8w"]
 _data = {
+"Bubble": SubResource( "Animation_a4mk5" ),
 "RESET": SubResource( "Animation_8tou6" ),
 "idledown": SubResource( "Animation_dbchf" ),
 "idleleft": SubResource( "Animation_sif1t" ),
@@ -475,24 +508,56 @@ states/IDLE/node = SubResource( "AnimationNodeBlendSpace2D_gljth" )
 states/IDLE/position = Vector2(175.5, 147.781)
 states/WALK/node = SubResource( "AnimationNodeBlendSpace2D_74ucf" )
 states/WALK/position = Vector2(438.5, 148.063)
-transitions = [&"IDLE", &"WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), &"WALK", &"IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
-start_node = "IDLE"
+transitions = ["IDLE", "WALK", SubResource( "AnimationNodeStateMachineTransition_nxk4m" ), "WALK", "IDLE", SubResource( "AnimationNodeStateMachineTransition_3yubj" )]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_45ph5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdu82"]
-radius = 2.0
+radius = 3.0
 height = 8.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oeom"]
+atlas = ExtResource( "2_o3ar2" )
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n4hg"]
+atlas = ExtResource( "2_o3ar2" )
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aochq"]
+atlas = ExtResource( "2_o3ar2" )
+region = Rect2(32, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wksch"]
+atlas = ExtResource( "2_o3ar2" )
+region = Rect2(48, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4o4k"]
+atlas = ExtResource( "2_o3ar2" )
+region = Rect2(64, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lpx37"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_3oeom" ), SubResource( "AtlasTexture_0n4hg" ), SubResource( "AtlasTexture_aochq" ), SubResource( "AtlasTexture_wksch" ), SubResource( "AtlasTexture_d4o4k" )],
+"loop": true,
+"name": &"bubble",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx42p"]
+size = Vector2(29, 35)
+
 [node name="Kid_1" type="CharacterBody2D"]
+script = ExtResource( "1_hyphl" )
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -12)
 frames = SubResource( "SpriteFrames_c0sno" )
-animation = &"idle"
+animation = &"walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+autoplay = "Bubble"
 libraries = {
 "": SubResource( "AnimationLibrary_pvt8w" )
 }
@@ -510,3 +575,21 @@ parameters/WALK/blend_position = Vector2(1, 1)
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource( "CapsuleShape2D_sdu82" )
+
+[node name="Bubble" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(2, -18)
+scale = Vector2(0.4375, 0.5)
+frames = SubResource( "SpriteFrames_lpx37" )
+animation = &"bubble"
+
+[node name="Talk_Area" parent="." instance=ExtResource( "5_pm7vg" )]
+
+[node name="CollisionShape2D" parent="Talk_Area" index="0"]
+position = Vector2(-0.5, -7.5)
+shape = SubResource( "RectangleShape2D_tx42p" )
+
+[connection signal="area_entered" from="Talk_Area" to="." method="_on_talk_area_area_entered"]
+[connection signal="area_exited" from="Talk_Area" to="." method="_on_talk_area_area_exited"]
+
+[editable path="Talk_Area"]

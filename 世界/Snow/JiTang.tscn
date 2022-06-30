@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=3 uid="uid://cj6qjy3w5td1o"]
+
+[ext_resource type="Script" path="res://世界/Snow/JiTang.gd" id="1_0pbpt"]
+[ext_resource type="Texture2D" uid="uid://16kupi31v2pc" path="res://Items/Sprite-0002.png" id="1_vltrr"]
+[ext_resource type="Texture2D" uid="uid://c8flkwktmfu6b" path="res://Fantasy RPG heroes pack/1x/Character portraits & Emotes/Emote_talking.png" id="3_og5oo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enwws"]
+radius = 27.4591
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue6it"]
+atlas = ExtResource( "3_og5oo" )
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03156"]
+atlas = ExtResource( "3_og5oo" )
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3jej"]
+atlas = ExtResource( "3_og5oo" )
+region = Rect2(32, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sus6"]
+atlas = ExtResource( "3_og5oo" )
+region = Rect2(48, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbroe"]
+atlas = ExtResource( "3_og5oo" )
+region = Rect2(64, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps2hw"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_ue6it" ), SubResource( "AtlasTexture_03156" ), SubResource( "AtlasTexture_p3jej" ), SubResource( "AtlasTexture_7sus6" ), SubResource( "AtlasTexture_jbroe" )],
+"loop": false,
+"name": &"bubble",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_fy30d"]
+resource_name = "buble"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bubble"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.416716),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 4]
+}
+
+[sub_resource type="Animation" id="Animation_7dt24"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"bubble"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dj8be"]
+_data = {
+"RESET": SubResource( "Animation_7dt24" ),
+"buble": SubResource( "Animation_fy30d" )
+}
+
+[node name="JiTang" type="Node2D"]
+script = ExtResource( "1_0pbpt" )
+
+[node name="Sprite-0003" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource( "1_vltrr" )
+
+[node name="Talk_Area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Talk_Area"]
+shape = SubResource( "CircleShape2D_enwws" )
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -25)
+scale = Vector2(0.8125, 0.785714)
+frames = SubResource( "SpriteFrames_ps2hw" )
+animation = &"bubble"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+autoplay = "buble"
+libraries = {
+"": SubResource( "AnimationLibrary_dj8be" )
+}
+
+[connection signal="body_entered" from="Talk_Area" to="." method="_on_talk_area_body_entered"]
+[connection signal="body_exited" from="Talk_Area" to="." method="_on_talk_area_body_exited"]

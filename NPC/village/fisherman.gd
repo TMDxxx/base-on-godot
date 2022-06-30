@@ -14,7 +14,7 @@ func _ready():
 func _unhandled_input(event):
 	if bubble.visible and event.is_action_pressed("ensure"):
 		DialogBox.show_dialog_box([
-		{text="hello,我是李希沛"},
+		{text="hello"},
 		{text="hello，你来自哪里"},
 		{text="山东菏泽曹县"},
 	])

@@ -578,7 +578,6 @@ size = Vector2(29, 35)
 script = ExtResource( "1_mnvsl" )
 
 [node name="Bubble" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(0, -23)
 scale = Vector2(0.4375, 0.5)
 frames = SubResource( "SpriteFrames_5ag0m" )

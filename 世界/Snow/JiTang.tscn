@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj6qjy3w5td1o"]
+[gd_scene load_steps=19 format=3 uid="uid://cj6qjy3w5td1o"]
 
 [ext_resource type="Script" path="res://世界/Snow/JiTang.gd" id="1_0pbpt"]
 [ext_resource type="Texture2D" uid="uid://16kupi31v2pc" path="res://Items/Sprite-0002.png" id="1_vltrr"]
 [ext_resource type="Texture2D" uid="uid://bspdx1pnvibxd" path="res://Items/LargeShadow.png" id="2_sp0kf"]
 [ext_resource type="Texture2D" uid="uid://c8flkwktmfu6b" path="res://Fantasy RPG heroes pack/1x/Character portraits & Emotes/Emote_talking.png" id="3_og5oo"]
+[ext_resource type="Texture2D" uid="uid://doah7w2y0jmpx" path="res://Items/C6DB4E1CAE1A04B76440678FB135FF6B.png" id="5_a8tgv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_enwws"]
 radius = 27.4591
@@ -31,13 +32,14 @@ region = Rect2(64, 0, 16, 14)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ps2hw"]
 animations = [{
 "frames": [SubResource( "AtlasTexture_ue6it" ), SubResource( "AtlasTexture_03156" ), SubResource( "AtlasTexture_p3jej" ), SubResource( "AtlasTexture_7sus6" ), SubResource( "AtlasTexture_jbroe" )],
-"loop": false,
+"loop": true,
 "name": &"bubble",
 "speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_7dt24"]
-length = 0.001
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,10 +59,10 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_fy30d"]
@@ -98,12 +100,99 @@ _data = {
 "buble": SubResource( "Animation_fy30d" )
 }
 
+[sub_resource type="Animation" id="Animation_1re1w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Position2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Position2D/magic3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0501679, 12.62)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Position2D/magic4:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.54709, -10.4733)]
+}
+
+[sub_resource type="Animation" id="Animation_mf27y"]
+resource_name = "zhuan"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Position2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Position2D/magic3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0501679, 12.62), Vector2(0, 24), Vector2(0.0501679, 12.62)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Position2D/magic4:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.54709, -10.4733), Vector2(-1.90735e-06, -24), Vector2(1.54709, -10.4733)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmfph"]
+_data = {
+"RESET": SubResource( "Animation_1re1w" ),
+"zhuan": SubResource( "Animation_mf27y" )
+}
+
 [node name="JiTang" type="Node2D"]
 script = ExtResource( "1_0pbpt" )
 
 [node name="shadow" type="Sprite2D" parent="."]
-position = Vector2(3, 8)
+position = Vector2(-2, -1)
 texture = ExtResource( "2_sp0kf" )
+offset = Vector2(4, 9)
 
 [node name="Sprite-0003" type="Sprite2D" parent="."]
 texture = ExtResource( "1_vltrr" )
@@ -121,10 +210,32 @@ frames = SubResource( "SpriteFrames_ps2hw" )
 animation = &"bubble"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
-autoplay = "buble"
+autoplay = "RESET"
 libraries = {
 "": SubResource( "AnimationLibrary_dj8be" )
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "zhuan"
+libraries = {
+"": SubResource( "AnimationLibrary_jmfph" )
+}
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="magic3" type="Sprite2D" parent="Position2D"]
+position = Vector2(0.0501679, 12.62)
+rotation = 1.5708
+scale = Vector2(1.29052, 1.71441)
+texture = ExtResource( "5_a8tgv" )
+flip_h = true
+
+[node name="magic4" type="Sprite2D" parent="Position2D"]
+position = Vector2(1.54709, -10.4733)
+rotation = 1.5708
+scale = Vector2(1.38453, 1.74745)
+texture = ExtResource( "5_a8tgv" )
+flip_v = true
 
 [connection signal="body_entered" from="Talk_Area" to="." method="_on_talk_area_body_entered"]
 [connection signal="body_exited" from="Talk_Area" to="." method="_on_talk_area_body_exited"]

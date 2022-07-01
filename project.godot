@@ -45,10 +45,6 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
-[gui]
-
-common/snap_controls_to_pixels=false
-
 [input]
 
 ui_left={
@@ -113,6 +109,7 @@ locale/locale_filter_mode=1
 2d_physics/layer_4="enemyhurtbox"
 2d_physics/layer_5="怪物"
 2d_physics/layer_6="SoftCollision"
+2d_physics/layer_7="NPC"
 
 [rendering]
 

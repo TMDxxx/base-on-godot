@@ -3,4 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://b32v7pmlkhl8f" path="res://属性/stats.tscn" id="1_nwnv3"]
 
 [node name="BeastmasterStatus" instance=ExtResource( "1_nwnv3" )]
-max_health = 3
+max_health = 10

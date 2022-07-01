@@ -1516,8 +1516,9 @@ height = 14.0
 position = Vector2(0, 2)
 collision_layer = 2
 script = ExtResource( "1_xc8e0" )
-ACCELERATION = 3000
-MAX_SPEED = 3000
+ACCELERATION = 5000
+MAX_SPEED = 6000
+ROLL_SPEED = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -1556,6 +1557,7 @@ position = Vector2(0, -8)
 position = Vector2(0, -2.38419e-07)
 collision_layer = 8
 script = ExtResource( "7_wd3o7" )
+damage = 5
 
 [node name="CollisionPolygon2D" parent="HitboxPivot/swordHitbox" index="0"]
 polygon = PackedVector2Array(-4.33922e-05, -12, -12, -12, -14, -11, -23, -2.99998, -23, 5.00002, -18, 11, -14, 13, 4.72069e-05, 13)

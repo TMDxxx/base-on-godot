@@ -10,7 +10,6 @@ func _ready():
 	animation_tree.set("parameters/IDLE/blend_position",velocity)
 	animation_tree.set("parameters/WALK/blend_position",velocity)
 	animationState.travel("IDLE")
-
 func _unhandled_input(event):
 	if bubble.visible and event.is_action_pressed("ensure"):
 		DialogBox.show_dialog_box([

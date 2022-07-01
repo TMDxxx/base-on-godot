@@ -1,7 +1,11 @@
 extends Node2D
 const dialog = preload("res://UI/dialog_box.tscn")
+var playeron_num=0
 @onready var aniPlayer=$AnimatedSprite2D
 @onready var SnowMap=get_node("../")
+
+signal playeron_once
+
 
 var isonarea=false
 
@@ -10,13 +14,14 @@ func _ready():
 
 func _unhandled_input(event):
 	if  aniPlayer.visible==true and event.is_action_pressed("ensure"):
-		DialogBox.show_dialog_box([
-		{text="在此区域内消灭15只怪物"},
-		{text="hello，你来自哪里"},
-		{text="山东菏泽曹县"},
-	])
-		SnowMap.set_indexed("make_enemy_flag",true)
-	
+		if playeron_num<=0:
+			DialogBox.show_dialog_box([
+			{text="在此区域内消灭15只怪物"}])
+			emit_signal("playeron_once")
+			playeron_num+=1
+		else:
+			DialogBox.show_dialog_box([
+			{text="不是吧，打过了还想打？"},])
 
 
 

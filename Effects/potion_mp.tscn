@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbtxsjk3yrpmk"]
+
+[ext_resource type="Texture2D" uid="uid://driq3v6m618ge" path="res://Fantasy RPG asset pack/Objects/Potion_blue.png" id="1_pbjw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v0ve"]
+atlas = ExtResource( "1_pbjw4" )
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol7yb"]
+atlas = ExtResource( "1_pbjw4" )
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nlw6"]
+atlas = ExtResource( "1_pbjw4" )
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f0mx"]
+atlas = ExtResource( "1_pbjw4" )
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ny6nn"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_4v0ve" ), SubResource( "AtlasTexture_ol7yb" ), SubResource( "AtlasTexture_3nlw6" ), SubResource( "AtlasTexture_6f0mx" )],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Potion_Mp" type="AnimatedSprite2D"]
+frames = SubResource( "SpriteFrames_ny6nn" )

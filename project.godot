@@ -36,6 +36,8 @@ config/icon="res://icon.png"
 ScaneChanger="*res://Globals/scane_changer.tscn"
 DialogBox="*res://UI/dialog_box.tscn"
 BeastmasterStatus="*res://NPC/Beastmaster/Beastmaster_status.tscn"
+GlobalData="*res://Globals/global_data.tscn"
+BeastmusterUi="*res://UI/BeastmusterUI.tscn"
 
 [display]
 
